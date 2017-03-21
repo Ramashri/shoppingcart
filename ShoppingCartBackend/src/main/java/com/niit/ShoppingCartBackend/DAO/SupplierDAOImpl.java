@@ -7,21 +7,18 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
-import com.niit.ShoppingCartBackend.Model.Category;
 import com.niit.ShoppingCartBackend.Model.Supplier;
 
 @Repository("SupplierDAO")
 public class SupplierDAOImpl implements SupplierDAO{
 	
-	@Autowired
-	private SessionFactory sessionFactory;
-	
 	public SupplierDAOImpl(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
 	
-
+	@Autowired
+	private SessionFactory sessionFactory;
+	
 	@Transactional
 	public List<Supplier> list() {
 		// TODO Auto-generated method stub

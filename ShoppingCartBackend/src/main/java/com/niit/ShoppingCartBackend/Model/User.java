@@ -22,7 +22,7 @@ private String Password;
 
 private int ContactNumber;
 
-private int Address;
+private String Address;
 
 /**
  * @return the userId
@@ -83,14 +83,14 @@ public void setContactNumber(int contactNumber) {
 /**
  * @return the address
  */
-public int getAddress() {
+public String getAddress() {
 	return Address;
 }
 
 /**
  * @param address the address to set
  */
-public void setAddress(int address) {
+public void setAddress(String address) {
 	Address = address;
 }
 

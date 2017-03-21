@@ -3,7 +3,6 @@ package com.niit.ShoppingCartBackend.DAO;
 import java.util.List;
 
 import com.niit.ShoppingCartBackend.Model.Billingaddress;
-import com.niit.ShoppingCartBackend.Model.Category;
 
 public interface BillingaddressDAO {
 	
@@ -11,7 +10,7 @@ public interface BillingaddressDAO {
 	
 	public Billingaddress getByBillId(int billid);		
 	
-	public Billingaddress getByBilllingAddress(String billingaddress);	
+	public Billingaddress getByBillingAddress(String billingaddress);	
 	
     public Billingaddress getByContactNumber(int contactnumber);
     

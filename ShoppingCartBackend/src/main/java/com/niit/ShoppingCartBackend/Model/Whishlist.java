@@ -14,32 +14,32 @@ import org.springframework.stereotype.Component;
 public class Whishlist {
 	@Id
 	@GeneratedValue
-	private int Productid;
-	private String Productname;
+	private int ProductId;
+	private String ProductName;
 	private int Price;
 	/**
-	 * @return the productid
+	 * @return the productId
 	 */
-	public int getProductid() {
-		return Productid;
+	public int getProductId() {
+		return ProductId;
 	}
 	/**
-	 * @param productid the productid to set
+	 * @param productid the productId to set
 	 */
 	public void setProductid(int productid) {
-		Productid = productid;
+		ProductId = productid;
 	}
 	/**
 	 * @return the productname
 	 */
-	public String getProductname() {
-		return Productname;
+	public String getProductName() {
+		return ProductName;
 	}
 	/**
 	 * @param productname the productname to set
 	 */
-	public void setProductname(String productname) {
-		Productname = productname;
+	public void setProductName(String productname) {
+		ProductName = productname;
 	}
 	/**
 	 * @return the price

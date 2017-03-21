@@ -2,7 +2,6 @@ package com.niit.ShoppingCartBackend.DAO;
 
 import java.util.List;
 
-import com.niit.ShoppingCartBackend.Model.Category;
 import com.niit.ShoppingCartBackend.Model.Shippingaddress;
 
 public interface ShippingaddressDAO {

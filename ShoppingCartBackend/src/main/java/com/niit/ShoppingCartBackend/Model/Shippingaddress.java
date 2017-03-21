@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import org.springframework.stereotype.Component;
 
-@Table(name = "ShippingAddress")
+@Table(name = "Shippingaddress")
 @Entity
 @Component
 public class Shippingaddress {
@@ -15,8 +15,9 @@ public class Shippingaddress {
 @Id
 @GeneratedValue
 	private int ShippingId;
+
 	private String UserName;
-	private String UserId;
+	private int UserId;
     private String ShippingAddress;
 	/**
 	 * @return the shippingId
@@ -45,25 +46,25 @@ public class Shippingaddress {
 	/**
 	 * @return the userId
 	 */
-	public String getUserId() {
+	public int getUserId() {
 		return UserId;
 	}
 	/**
 	 * @param userId the userId to set
 	 */
-	public void setUserId(String userId) {
+	public void setUserId(int userId) {
 		UserId = userId;
 	}
 	/**
 	 * @return the shippingAddress
 	 */
-	public String getShippingaddress() {
+	public String getShippingAddress() {
 		return ShippingAddress;
 	}
 	/**
 	 * @param shippingaddress the shippingAddress to set
 	 */
-	public void setShippingaddress(String shippingaddress) {
+	public void setShippingAddress(String shippingaddress) {
 		ShippingAddress = shippingaddress;
 	}
 	

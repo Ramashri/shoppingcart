@@ -9,11 +9,14 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.ShoppingCartBackend.Model.Product;
-import com.niit.ShoppingCartBackend.Model.Product;
+
 
 @Repository("ProductDAO")
 public class ProductDAOImpl implements ProductDAO {
 
+	public ProductDAOImpl(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+	}
 	@Autowired
 	private SessionFactory sessionFactory;
 	

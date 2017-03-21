@@ -14,12 +14,12 @@ import com.niit.ShoppingCartBackend.Model.Whishlist;
 @Repository("WishlistDAO")
 public class WishlistDAOImpl implements WishlistDAO {
 	
-	@Autowired
-	private SessionFactory sessionFactory;
-	
 	public WishlistDAOImpl(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
+	
+	@Autowired
+	private SessionFactory sessionFactory;
 
 	@Transactional
 	public List<Whishlist> list() {
@@ -75,7 +75,7 @@ public class WishlistDAOImpl implements WishlistDAO {
 	@Transactional
 	public void delete(String Productname) {
 		Whishlist wishlistToDelete = new Whishlist();
-		wishlistToDelete.setProductname(Productname);
+		wishlistToDelete.setProductName(Productname);
 		sessionFactory.getCurrentSession().delete(wishlistToDelete);
 	}
 		

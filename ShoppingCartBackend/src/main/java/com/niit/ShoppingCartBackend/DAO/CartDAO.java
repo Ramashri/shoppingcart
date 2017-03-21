@@ -3,8 +3,7 @@ package com.niit.ShoppingCartBackend.DAO;
 import java.util.List;
 
 import com.niit.ShoppingCartBackend.Model.Cart;
-import com.niit.ShoppingCartBackend.Model.Category;
-import com.niit.ShoppingCartBackend.Model.User;
+
 
 public interface CartDAO {
 	
@@ -16,7 +15,7 @@ public Cart getByProductId(int productid);
 
 public Cart getByProductName(String productname);	
 
-public void saveOrUpdate(Cart productid);
+public void saveOrUpdate(Cart cart);
 	
 public void delete(int productid);
 

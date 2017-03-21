@@ -7,12 +7,14 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
-import com.niit.ShoppingCartBackend.Model.Category;
 import com.niit.ShoppingCartBackend.Model.Shippingaddress;
 
 @Repository("ShippingaddressDAO")
 public class ShippingaddressDAOImpl implements ShippingaddressDAO {
+	
+	public ShippingaddressDAOImpl(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+	}
 
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -85,7 +87,7 @@ public class ShippingaddressDAOImpl implements ShippingaddressDAO {
 	@Transactional
 	public void delete(String Shippingaddress) {
 		Shippingaddress shippingaddressToDelete = new Shippingaddress();
-		shippingaddressToDelete.setShippingaddress(Shippingaddress);
+		shippingaddressToDelete.setShippingAddress(Shippingaddress);
 		sessionFactory.getCurrentSession().delete(shippingaddressToDelete);
 		
 	}

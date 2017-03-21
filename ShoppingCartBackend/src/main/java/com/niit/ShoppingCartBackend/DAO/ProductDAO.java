@@ -3,7 +3,6 @@ package com.niit.ShoppingCartBackend.DAO;
 import java.util.List;
 
 import com.niit.ShoppingCartBackend.Model.Product;
-import com.niit.ShoppingCartBackend.Model.Product;
 
 public interface ProductDAO {
 	

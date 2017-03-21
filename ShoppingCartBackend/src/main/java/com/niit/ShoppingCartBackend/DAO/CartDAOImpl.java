@@ -9,13 +9,16 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.ShoppingCartBackend.Model.Cart;
-import com.niit.ShoppingCartBackend.Model.Category;
 
 @Repository("CartDAO")
 public class CartDAOImpl implements CartDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;
+	
+	public CartDAOImpl(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+	}
 	
 	@Transactional
 	public List<Cart> list() {

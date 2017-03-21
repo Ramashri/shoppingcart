@@ -14,9 +14,30 @@ import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.niit.ShoppingCartBackend.DAO.BillingaddressDAO;
+import com.niit.ShoppingCartBackend.DAO.BillingaddressDAOImpl;
+import com.niit.ShoppingCartBackend.DAO.CartDAO;
+import com.niit.ShoppingCartBackend.DAO.CartDAOImpl;
 import com.niit.ShoppingCartBackend.DAO.CategoryDAO;
 import com.niit.ShoppingCartBackend.DAO.CategoryDAOImpl;
+import com.niit.ShoppingCartBackend.DAO.ProductDAO;
+import com.niit.ShoppingCartBackend.DAO.ProductDAOImpl;
+import com.niit.ShoppingCartBackend.DAO.ShippingaddressDAO;
+import com.niit.ShoppingCartBackend.DAO.ShippingaddressDAOImpl;
+import com.niit.ShoppingCartBackend.DAO.SupplierDAO;
+import com.niit.ShoppingCartBackend.DAO.SupplierDAOImpl;
+import com.niit.ShoppingCartBackend.DAO.UserDAO;
+import com.niit.ShoppingCartBackend.DAO.UserDAOImpl;
+import com.niit.ShoppingCartBackend.DAO.WishlistDAO;
+import com.niit.ShoppingCartBackend.DAO.WishlistDAOImpl;
+import com.niit.ShoppingCartBackend.Model.Billingaddress;
+import com.niit.ShoppingCartBackend.Model.Cart;
 import com.niit.ShoppingCartBackend.Model.Category;
+import com.niit.ShoppingCartBackend.Model.Product;
+import com.niit.ShoppingCartBackend.Model.Shippingaddress;
+import com.niit.ShoppingCartBackend.Model.Supplier;
+import com.niit.ShoppingCartBackend.Model.User;
+import com.niit.ShoppingCartBackend.Model.Whishlist;
 
 @Configuration
 @ComponentScan("com.niit.*")
@@ -54,6 +75,13 @@ public class ApplicationContextConfig {
 		LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
 		sessionBuilder.addProperties(getHibernateProperties());
 		sessionBuilder.addAnnotatedClass(Category.class);
+		sessionBuilder.addAnnotatedClass(User.class);
+		sessionBuilder.addAnnotatedClass(Product.class);
+		sessionBuilder.addAnnotatedClass(Billingaddress.class);
+		sessionBuilder.addAnnotatedClass(Cart.class);
+		sessionBuilder.addAnnotatedClass(Supplier.class);
+		sessionBuilder.addAnnotatedClass(Whishlist.class);
+		sessionBuilder.addAnnotatedClass(Shippingaddress.class);
 		return sessionBuilder.buildSessionFactory();
 	}
 	@Autowired
@@ -69,4 +97,57 @@ public class ApplicationContextConfig {
 	public CategoryDAO getCategoryDAO(SessionFactory sessionFactory) {
 		return new CategoryDAOImpl(sessionFactory);
 	}
+	
+	@Autowired(required = true)
+	@Bean(name = "UserDAO")
+	public UserDAO getUserDAO(SessionFactory sessionFactory) {
+		return new UserDAOImpl(sessionFactory);
+	}
+	
+	@Autowired(required = true)
+	@Bean(name = "ProductDAO")
+	public ProductDAO getProductDAO(SessionFactory sessionFactory) {
+		return new ProductDAOImpl(sessionFactory);
+	}
+	
+	@Autowired(required = true)
+	@Bean(name = "BillingaddressDAO")
+	public BillingaddressDAO getBillingaddresstDAO(SessionFactory sessionFactory) {
+		return new BillingaddressDAOImpl(sessionFactory);
+	}
+	
+	@Autowired(required = true)
+	@Bean(name = "CartDAO")
+	public CartDAO getCartDAO(SessionFactory sessionFactory) {
+		return new CartDAOImpl(sessionFactory);
+	}
+	
+	@Autowired(required = true)
+	@Bean(name = "SupplierDAO")
+	public SupplierDAO getSupplierDAO(SessionFactory sessionFactory) {
+		return new SupplierDAOImpl(sessionFactory);
+	}
+	
+	@Autowired(required = true)
+	@Bean(name = "WishlistDAO")
+	public WishlistDAO getWishlistDAO(SessionFactory sessionFactory) {
+		return new WishlistDAOImpl(sessionFactory);
+	}
+	
+	@Autowired(required = true)
+	@Bean(name = "ShippingaddressDAO")
+	public ShippingaddressDAO getShippingaddressDAO(SessionFactory sessionFactory) {
+		return new ShippingaddressDAOImpl(sessionFactory);
+	}
 }
+
+
+
+
+
+
+
+
+
+
+

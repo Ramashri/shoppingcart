@@ -9,10 +9,12 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.ShoppingCartBackend.Model.Billingaddress;
-import com.niit.ShoppingCartBackend.Model.Category;
 
 @Repository("BillingaddressDAO")
 public class BillingaddressDAOImpl implements BillingaddressDAO {
+	public BillingaddressDAOImpl(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+	}
 @Autowired
 private  SessionFactory sessionFactory;
 
@@ -37,7 +39,7 @@ private  SessionFactory sessionFactory;
 	}
 
 @Transactional
-	public Billingaddress getByBilllingAddress(String billingaddress) {
+	public Billingaddress getByBillingAddress(String billingaddress) {
 	String hql = "from Billingaddress where BillingAddress ='" + billingaddress + "'";
 	Query query = (Query) sessionFactory.getCurrentSession().createQuery(hql);
 	@SuppressWarnings("unchecked")
@@ -77,7 +79,7 @@ public void editBillingAddress(Billingaddress billingaddress) {
 	
 }
 
-@Override
+@Transactional
 public void saveOrUpdate(Billingaddress billingaddress) {
 	// TODO Auto-generated method stub
 	sessionFactory.getCurrentSession().saveOrUpdate(billingaddress);
