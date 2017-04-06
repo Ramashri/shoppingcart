@@ -6,6 +6,7 @@ import com.niit.ShoppingCartBackend.DAO.BillingaddressDAO;
 import com.niit.ShoppingCartBackend.DAO.CartDAO;
 import com.niit.ShoppingCartBackend.DAO.CategoryDAO;
 import com.niit.ShoppingCartBackend.DAO.ProductDAO;
+import com.niit.ShoppingCartBackend.DAO.RoleDAO;
 import com.niit.ShoppingCartBackend.DAO.ShippingaddressDAO;
 import com.niit.ShoppingCartBackend.DAO.SupplierDAO;
 import com.niit.ShoppingCartBackend.DAO.UserDAO;
@@ -16,13 +17,16 @@ import com.niit.ShoppingCartBackend.Model.Category;
 import com.niit.ShoppingCartBackend.Model.User;
 import com.niit.ShoppingCartBackend.Model.Whishlist;
 import com.niit.ShoppingCartBackend.Model.Product;
+import com.niit.ShoppingCartBackend.Model.Role;
 import com.niit.ShoppingCartBackend.Model.Shippingaddress;
 import com.niit.ShoppingCartBackend.Model.Supplier;
 
 public class CategoryTest {
 
-	public static void main(String[] args) {
-		@SuppressWarnings("resource")
+	private static Cart productid;
+
+	public static void main (String[] args) {
+
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
 		context.scan("com.niit.*");
 		context.refresh();
@@ -35,7 +39,7 @@ public class CategoryTest {
 		SupplierDAO supplierDAO = (SupplierDAO) context.getBean("SupplierDAO");
 		WishlistDAO wishlistDAO = (WishlistDAO) context.getBean("WishlistDAO");
 		ShippingaddressDAO shippingaddressDAO = (ShippingaddressDAO) context.getBean("ShippingaddressDAO");
-		
+		RoleDAO roleDAO = (RoleDAO) context.getBean("RoleDAO");
 		
 		Category category = (Category) context.getBean("category");
 		User user = (User) context.getBean("user");
@@ -45,18 +49,34 @@ public class CategoryTest {
 		Supplier supplier = (Supplier) context.getBean("supplier");
 		Whishlist whishlist = (Whishlist) context.getBean("whishlist");
 		Shippingaddress shippingaddress = (Shippingaddress) context.getBean("shippingaddress");
+		Role role = (Role) context.getBean("role");
 		
 		
-		category.setCategoryId(123);
-		category.setCategoryName("Watch");
+		category.setCategoryName("Watches");
+		
 		categoryDAO.saveOrUpdate(category);
 		
 		
 		user.setUserName("skfr");
+		user.setEmailId("jhvd@gmail.com");
 		user.setPassword("jfkd");
+		user.setConformPassword("hjsg");
 		user.setContactNumber(98765);
-		user.setAddress("12,sejkajdh");
+		user.setAddress("s12,sejkajdh");
+		user.setZipcode(75426);
+
+		role.setUserName("kjgdffd");
+		role.setEmailId("hgfshdghj");
+		role.setContactNumber(6567);
+		
+		user.setRole(role);
+		role.setUser(user);
+		
 		userDAO.saveOrUpdate(user);
+		roleDAO.saveOrUpdate(role);
+		
+		
+		
 		
 		
 		product.setProductName("fdknmfg");
@@ -66,7 +86,7 @@ public class CategoryTest {
 		billingaddress.setContactNumber(897465);
 		billingaddressDAO.saveOrUpdate(billingaddress);
 		
-		cart.setProductId(02);
+		
 		cart.setProductName("dfhjj");
 		cartDAO.saveOrUpdate(cart);
 		
@@ -83,7 +103,6 @@ public class CategoryTest {
 		shippingaddress.setShippingAddress("fdgfs");
 		shippingaddress.setUserName("jkfgjd");
 		shippingaddress.setUserId(6474);
-		
 		shippingaddressDAO.saveOrUpdate(shippingaddress);
 		
 		

@@ -14,46 +14,27 @@ import org.springframework.stereotype.Component;
 public class Supplier {
 	@Id
 	@GeneratedValue
-	private int SupplierId;
-	private String SupplierName;
-	private int ContactNumber;
-	
-	/**
-	 * @return the contactNumber
-	 */
-	public int getContactNumber() {
-		return ContactNumber;
-	}
-	/**
-	 * @param contactNumber the contactNumber to set
-	 */
-	public void setContactNumber(int contactNumber) {
-		ContactNumber = contactNumber;
-	}
-	/**
-	 * @return the supplierId
-	 */
+	private int supplierId;
+	private String supplierName;
+	private int contactNumber;
 	public int getSupplierId() {
-		return SupplierId;
+		return supplierId;
 	}
-	/**
-	 * @param supplierId the supplierId to set
-	 */
 	public void setSupplierId(int supplierId) {
-		SupplierId = supplierId;
+		this.supplierId = supplierId;
 	}
-	/**
-	 * @return the supplierName
-	 */
 	public String getSupplierName() {
-		return SupplierName;
+		return supplierName;
 	}
-	/**
-	 * @param supplierName the supplierName to set
-	 */
 	public void setSupplierName(String supplierName) {
-		SupplierName = supplierName;
+		this.supplierName = supplierName;
+	}
+	public int getContactNumber() {
+		return contactNumber;
+	}
+	public void setContactNumber(int contactNumber) {
+		this.contactNumber = contactNumber;
 	}
 	
-
+	
 }

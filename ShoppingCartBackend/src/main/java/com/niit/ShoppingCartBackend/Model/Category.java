@@ -13,31 +13,28 @@ import org.springframework.stereotype.Component;
 public class Category {
 	@Id
 	@GeneratedValue
-	private int CategoryId;
-	private String CategoryName;
-	/**
-	 * @return the categoryId
-	 */
+	private int categoryId;
+	
+	private String categoryName;
+	private String categoryDescription;
 	public int getCategoryId() {
-		return CategoryId;
+		return categoryId;
 	}
-	/**
-	 * @param categoryId the categoryId to set
-	 */
 	public void setCategoryId(int categoryId) {
-		CategoryId = categoryId;
+		this.categoryId = categoryId;
 	}
-	/**
-	 * @return the categoryName
-	 */
 	public String getCategoryName() {
-		return CategoryName;
+		return categoryName;
 	}
-	/**
-	 * @param categoryName the categoryName to set
-	 */
 	public void setCategoryName(String categoryName) {
-		CategoryName = categoryName;
+		this.categoryName = categoryName;
 	}
+	public String getCategoryDescription() {
+		return categoryDescription;
+	}
+	public void setCategoryDescription(String categoryDescription) {
+		this.categoryDescription = categoryDescription;
+	}
+	
 	
 }

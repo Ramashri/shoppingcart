@@ -15,6 +15,7 @@ public class Cart {
 	@Id
 	@GeneratedValue
 	private int CartId;
+	
 	private int ProductId;
 	private String ProductName;
 	/**

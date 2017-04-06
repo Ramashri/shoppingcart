@@ -22,6 +22,8 @@ import com.niit.ShoppingCartBackend.DAO.CategoryDAO;
 import com.niit.ShoppingCartBackend.DAO.CategoryDAOImpl;
 import com.niit.ShoppingCartBackend.DAO.ProductDAO;
 import com.niit.ShoppingCartBackend.DAO.ProductDAOImpl;
+import com.niit.ShoppingCartBackend.DAO.RoleDAO;
+import com.niit.ShoppingCartBackend.DAO.RoleDAOImpl;
 import com.niit.ShoppingCartBackend.DAO.ShippingaddressDAO;
 import com.niit.ShoppingCartBackend.DAO.ShippingaddressDAOImpl;
 import com.niit.ShoppingCartBackend.DAO.SupplierDAO;
@@ -34,6 +36,7 @@ import com.niit.ShoppingCartBackend.Model.Billingaddress;
 import com.niit.ShoppingCartBackend.Model.Cart;
 import com.niit.ShoppingCartBackend.Model.Category;
 import com.niit.ShoppingCartBackend.Model.Product;
+import com.niit.ShoppingCartBackend.Model.Role;
 import com.niit.ShoppingCartBackend.Model.Shippingaddress;
 import com.niit.ShoppingCartBackend.Model.Supplier;
 import com.niit.ShoppingCartBackend.Model.User;
@@ -82,6 +85,7 @@ public class ApplicationContextConfig {
 		sessionBuilder.addAnnotatedClass(Supplier.class);
 		sessionBuilder.addAnnotatedClass(Whishlist.class);
 		sessionBuilder.addAnnotatedClass(Shippingaddress.class);
+		sessionBuilder.addAnnotatedClass(Role.class);
 		return sessionBuilder.buildSessionFactory();
 	}
 	@Autowired
@@ -138,6 +142,11 @@ public class ApplicationContextConfig {
 	@Bean(name = "ShippingaddressDAO")
 	public ShippingaddressDAO getShippingaddressDAO(SessionFactory sessionFactory) {
 		return new ShippingaddressDAOImpl(sessionFactory);
+	}
+	@Autowired(required = true)
+	@Bean(name = "RoleDAO")
+	public RoleDAO getRoleDAO(SessionFactory sessionFactory) {
+		return new RoleDAOImpl(sessionFactory);
 	}
 }
 

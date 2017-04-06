@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.niit.ShoppingCartBackend.Model.Category;
 import com.niit.ShoppingCartBackend.Model.User;
 
 @Repository("UserDAO")
@@ -28,19 +27,6 @@ public class UserDAOImpl  implements UserDAO{
 	}
 
 	@Transactional
-	public User getByUserName(String username) {
-		String hql = "from User where UserName ='" + username + "'";
-		Query query = (Query) sessionFactory.getCurrentSession().createQuery(hql);
-		@SuppressWarnings("unchecked")
-		List<User> listUser = (List<User>) (query).list();
-
-		if (listUser != null && !listUser.isEmpty()) {
-			return listUser.get(0);
-		}
-		return null;
-	}
-
-	@Transactional
 	public User getByUserId(int userid) {
 		String hql = "from User where UserId ='" + userid + "'";
 		Query query = (Query) sessionFactory.getCurrentSession().createQuery(hql);
@@ -53,6 +39,22 @@ public class UserDAOImpl  implements UserDAO{
 		return null;
 	}
 
+	
+
+	@Transactional
+	public User getByEmailId(String emailid) {
+		String hql = "from User where EmailId ='" + emailid + "'";
+		Query query = (Query) sessionFactory.getCurrentSession().createQuery(hql);
+		@SuppressWarnings("unchecked")
+		List<User> listUser = (List<User>) (query).list();
+
+		if (listUser != null && !listUser.isEmpty()) {
+			return listUser.get(0);
+		
+	}
+		return null;
+	}
+	
 	@Transactional
 	public User getByPassword(String password) {
 		String hql = "from User where Password ='" + password + "'";
@@ -63,6 +65,19 @@ public class UserDAOImpl  implements UserDAO{
 		if (listUser != null && !listUser.isEmpty()) {
 			return listUser.get(0);
 		}
+		return null;
+	}
+	
+	public User getByConformPassword(String conformpassword) {
+		String hql = "from User where ConformPassword ='" + conformpassword + "'";
+		Query query = (Query) sessionFactory.getCurrentSession().createQuery(hql);
+		@SuppressWarnings("unchecked")
+		List<User> listUser = (List<User>) (query).list();
+
+		if (listUser != null && !listUser.isEmpty()) {
+			return listUser.get(0);
+		
+	}
 		return null;
 	}
 
@@ -91,10 +106,39 @@ public class UserDAOImpl  implements UserDAO{
 		}
 		return null;
 	}
+	
+	
+	@Transactional
+	public User getByZipcode(int zipcode) {
+		String hql = "from User where Zipcode ='" + zipcode + "'";
+		Query query = (Query) sessionFactory.getCurrentSession().createQuery(hql);
+		@SuppressWarnings("unchecked")
+		List<User> listUser = (List<User>) (query).list();
+
+		if (listUser != null && !listUser.isEmpty()) {
+			return listUser.get(0);
+		
+	}
+		return null;
+	}
+	
+	public User getByRole(String role) {
+		String hql = "from User where Role ='" + role + "'";
+		Query query = (Query) sessionFactory.getCurrentSession().createQuery(hql);
+		@SuppressWarnings("unchecked")
+		List<User> listUser = (List<User>) (query).list();
+
+		if (listUser != null && !listUser.isEmpty()) {
+			return listUser.get(0);
+		
+	}
+		return null;
+	}
+	
 
 	@Transactional
 	public void saveOrUpdate(User user) {
-		sessionFactory.getCurrentSession().saveOrUpdate(user);
+		sessionFactory.getCurrentSession().save(user);
 		
 	}
 
@@ -105,5 +149,20 @@ public class UserDAOImpl  implements UserDAO{
 		sessionFactory.getCurrentSession().delete(userToDelete);
 		
 	}
+
+	public User getByUserName(String username) {
+		String hql = "from User where UserName ='" + username + "'";
+		Query query = (Query) sessionFactory.getCurrentSession().createQuery(hql);
+		@SuppressWarnings("unchecked")
+		List<User> listUser = (List<User>) (query).list();
+
+		if (listUser != null && !listUser.isEmpty()) {
+			return listUser.get(0);
+		
+	}
+		return null;
+	}
+
+	
 
 }

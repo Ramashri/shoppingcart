@@ -2,11 +2,14 @@ package com.niit.ShoppingCartBackend.DAO;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.niit.ShoppingCartBackend.Model.Product;
 import com.niit.ShoppingCartBackend.Model.Supplier;
 
 @Repository("SupplierDAO")
@@ -21,8 +24,10 @@ public class SupplierDAOImpl implements SupplierDAO{
 	
 	@Transactional
 	public List<Supplier> list() {
-		// TODO Auto-generated method stub
-		return null;
+		@SuppressWarnings({ "unchecked" })
+		List<Supplier> listSupplier = (List<Supplier>) sessionFactory.getCurrentSession().createCriteria(Supplier.class)
+				.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
+		return listSupplier;
 	}
 
 	@Transactional
@@ -71,9 +76,9 @@ public class SupplierDAOImpl implements SupplierDAO{
 	}
 
 	@Transactional
-	public void delete(int Supplierid) {
+	public void delete(int supplierid) {
 		Supplier supplierToDelete = new Supplier();
-		supplierToDelete.setSupplierId(Supplierid);
+		supplierToDelete.setSupplierId(supplierid);
 		sessionFactory.getCurrentSession().delete(supplierToDelete);
 		
 	}

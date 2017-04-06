@@ -14,37 +14,77 @@ public class Product {
 	
 @Id
 @GeneratedValue
-private int ProductId;
+private int productId;
 
-private String ProductName;
+private String productName;
 
-/**
- * @return the productId
- */
+private String productDescription;
+
+private int stock;
+
+private int price;
+
+private String category;
+
+private String supplierName;
+
+
 public int getProductId() {
-	return ProductId;
+	return productId;
 }
 
-/**
- * @param productId the productId to set
- */
 public void setProductId(int productId) {
-	ProductId = productId;
+	this.productId = productId;
 }
 
-/**
- * @return the productName
- */
 public String getProductName() {
-	return ProductName;
+	return productName;
 }
 
-/**
- * @param productName the productName to set
- */
 public void setProductName(String productName) {
-	ProductName = productName;
+	this.productName = productName;
 }
+
+public String getProductDescription() {
+	return productDescription;
+}
+
+public void setProductDescription(String productDescription) {
+	this.productDescription = productDescription;
+}
+
+public int getStock() {
+	return stock;
+}
+
+public void setStock(int stock) {
+	this.stock = stock;
+}
+
+public int getPrice() {
+	return price;
+}
+
+public void setPrice(int price) {
+	this.price = price;
+}
+
+public String getCategory() {
+	return category;
+}
+
+public void setCategory(String category) {
+	this.category = category;
+}
+
+public String getSupplierName() {
+	return supplierName;
+}
+
+public void setSupplierName(String supplierName) {
+	this.supplierName = supplierName;
+}
+
 
 
 }

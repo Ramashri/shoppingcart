@@ -15,6 +15,7 @@ public class CartDAOImpl implements CartDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;
+	private Object cart;
 	
 	public CartDAOImpl(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
@@ -67,20 +68,13 @@ public class CartDAOImpl implements CartDAO {
 	}
 
 	@Transactional
-	public void saveOrUpdate(Cart productid) {
-		// TODO Auto-generated method stub
-		sessionFactory.getCurrentSession().saveOrUpdate(productid);
+	public void saveOrUpdate(Cart cart) {
+		
+		
+		sessionFactory.getCurrentSession().saveOrUpdate(cart);
 	}
-
-	
 
 	@Transactional
-	public void editCategory(Cart productid) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public void delete(int productid) {
 		Cart cartToDelete = new Cart();
 		cartToDelete.setProductId(productid);

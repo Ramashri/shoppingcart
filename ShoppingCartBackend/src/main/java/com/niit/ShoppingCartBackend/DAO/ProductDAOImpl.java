@@ -2,12 +2,14 @@ package com.niit.ShoppingCartBackend.DAO;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.niit.ShoppingCartBackend.Model.Category;
 import com.niit.ShoppingCartBackend.Model.Product;
 
 
@@ -22,8 +24,10 @@ public class ProductDAOImpl implements ProductDAO {
 	
 	@Transactional
 	public List<Product> list() {
-		// TODO Auto-generated method stub
-		return null;
+		@SuppressWarnings({ "unchecked" })
+		List<Product> listProduct = (List<Product>) sessionFactory.getCurrentSession().createCriteria(Product.class)
+				.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
+		return listProduct;
 	}
 
 	@Transactional
