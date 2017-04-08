@@ -56,8 +56,6 @@ p{ line-height: 1em; }
 h1, h2, h3, h4{
 
         color: #ed2553;
-	font-weight: normal;
-	line-height: 1.2em;
 	margin: 0 0 .1em 0;
 }
 h1{ font-size: 1.7em; }
@@ -87,12 +85,6 @@ body{
     overflow: hidden;
     background-color:#0099ff;
 }
-nav[role="main"] ul li {
-    background-color:#0099ff;
-}
-nav[role="sub"] ul li {
-    background-color:#0099ff;
-}
 
 li {
     float: left;
@@ -120,16 +112,19 @@ li a:hover {
 		
 	
 		<div id="nav">
-		<nav role="main">
 			<ul>  
                                 <li><a href="cartPage">Cart</a></li>
                                 <li><a href="billingaddressPage">Billing Address</a></li>
                                 <li><a href="shippingaddressPage">Shipping Address</a></li>
                                 <li><a href="#/home.html">Home</a></li>
-                                <li style="float:right"><a href="signupPage">Signup</a></li>
-                                <li style="float:right"><a href="#">Logout</a></li>
-                                <li style="float:right"><a href="loginPage">Login</button></li>
+                                <c:if test="${pageContext.request.userPrincipal.name != null }">
+                                <li style="float:right"><a href="/home.html">Logout</a></li>
+                                </c:if>
+                                 <c:if test="${pageContext.request.userPrincipal.name == null }">
+                                  <li style="float:right"><a href="loginPage">Login</button></li>
+                                <li style="float:right"><a href="signupPage">Signup</a></li>                               
                                
+                               </c:if>
       </ul>
       </div>
       

@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.niit.ShoppingCartBackend.DAO.CategoryDAO;
+import com.niit.ShoppingCartBackend.DAO.ProductDAO;
 import com.niit.ShoppingCartBackend.DAO.SupplierDAO;
 import com.niit.ShoppingCartBackend.Model.Category;
+import com.niit.ShoppingCartBackend.Model.Product;
 import com.niit.ShoppingCartBackend.Model.Supplier;
 
 @Controller
@@ -21,9 +23,14 @@ public class HomeController {
 	
 	@Autowired
 	private SupplierDAO supplierDAO;
+	
+	@Autowired
+	private ProductDAO productDAO;
 
 	@RequestMapping("/")
-	public String homePage(){
+	public String homePage(Model model){
+		List<Product> productList = productDAO.list();
+		model.addAttribute("productList", productList);
 		
 		return "home";
 	}

@@ -6,35 +6,19 @@
 <title>Shopping Cart</title>
 	
 <style>
-p{ line-height: 1em; }
-h1, h2, h3, h4{
-
-        color: orange;
-	font-weight: normal;
-	line-height: 1.2em;
-	margin: 0 0 .5em 0;
-}
-h1{ font-size: 1.7em; }
-h2{ font-size: 1.5em; }
 a{
-	color: black;
+	color: white;
 	text-decoration: none;
 
 }
 	a:hover,
 	a:active{ text-decoration: none; }
 
-body{
-   font-family: arial; font-size: 100%;line-height: 1.2em; width: 100%; margin: 0 0 .5em 0; background: #eee; text-align: center;
-}
 #nav ul {
     list-style-type: none;
     margin:0 0 .5em 0;
     padding: 0;
-    font-weight: normal;
-    line-height: 1.2em;
-    overflow: hidden;
-    background-color: black;
+    background-color: white;
 }
 
 li {
@@ -49,15 +33,7 @@ li a {
     text-decoration: none;
 }
 
-li a:hover {
-    background-color: orange; 
-}
-
-
-
 #page{ margin: 20px; }
-
-
 
 </style>
 </head>
@@ -78,8 +54,13 @@ li a:hover {
     <%@include file="/WEB-INF/views/NewSignup.jsp" %>
      </c:when>
      
-     <c:otherwise>Hai</c:otherwise>
+     <c:when test="${not empty productDescClicked}">
+     
+    <%@include file="/WEB-INF/views/ProductDescription.jsp" %>
+     </c:when>
+     
+     <c:otherwise> <%@include file="/WEB-INF/views/productList.jsp" %></c:otherwise>
      </c:choose> 
-      
+     
 </body>
 </html>

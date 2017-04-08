@@ -9,7 +9,7 @@
 <body>
     <form action="addCategory" method="post">
  
-  Category Name:<br>
+  <br><br><br>Category Name:<br>
   <input type="text" name="categoryName" required><br><br>
   Category Description:<br>
   <input type="text" name="categoryDescription" required><br><br>

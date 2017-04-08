@@ -9,7 +9,7 @@
 <body>
 <form action="addSupplier" method="post">
  
-  Supplier Name:<br>
+  <br><br><br>Supplier Name:<br>
   <input type="text" name="SupplierName" required><br><br>
   Contact Number:<br>
   <input type="text" name="ContactNumber" required><br><br>
