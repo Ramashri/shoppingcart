@@ -76,9 +76,6 @@ public class CategoryTest {
 		roleDAO.saveOrUpdate(role);
 		
 		
-		
-		
-		
 		product.setProductName("fdknmfg");
 		productDAO.saveOrUpdate(product);
 		
@@ -102,7 +99,6 @@ public class CategoryTest {
 		
 		shippingaddress.setShippingAddress("fdgfs");
 		shippingaddress.setUserName("jkfgjd");
-		shippingaddress.setUserId(6474);
 		shippingaddressDAO.saveOrUpdate(shippingaddress);
 		
 		

@@ -17,20 +17,8 @@ public class Shippingaddress {
 	private int ShippingId;
 
 	private String UserName;
-	private int UserId;
     private String ShippingAddress;
-	/**
-	 * @return the shippingId
-	 */
-	public int getShippingid() {
-		return ShippingId;
-	}
-	/**
-	 * @param shippingid the shippingid to set
-	 */
-	public void setShippingid(int shippingid) {
-		ShippingId = shippingid;
-	}
+	
 	/**
 	 * @return the userName
 	 */
@@ -42,18 +30,6 @@ public class Shippingaddress {
 	 */
 	public void setUserName(String userName) {
 		UserName = userName;
-	}
-	/**
-	 * @return the userId
-	 */
-	public int getUserId() {
-		return UserId;
-	}
-	/**
-	 * @param userId the userId to set
-	 */
-	public void setUserId(int userId) {
-		UserId = userId;
 	}
 	/**
 	 * @return the shippingAddress
