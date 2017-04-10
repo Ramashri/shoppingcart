@@ -19,25 +19,25 @@ public class User {
 @Id
 @Column(name="UserId")
 @GeneratedValue
-private int UserId;
+private int userId;
 
-private String UserName;
-private String EmailId;
+private String userName;
 
-private String Password;
+private String emailId;
 
-private String ConformPassword;
+private String password;
 
-private int ContactNumber;
+private int contactNumber;
 
-private String Address;
+private String address;
 
-private int Zipcode;
+private int zipcode;
 
 private boolean enabled;
 
 @OneToOne(cascade=CascadeType.ALL)
 @JoinColumn(name="UserId")
+
 private Role role;
 
 public Role getRole()
@@ -58,122 +58,61 @@ public void setEnabled(boolean enabled) {
 	this.enabled = enabled;
 }
 
-
-
-
-/**
- * @return the userId
- */
 public int getUserId() {
-	return UserId;
+	return userId;
 }
 
-/**
- * @param userId the userId to set
- */
 public void setUserId(int userId) {
-	UserId = userId;
+	this.userId = userId;
 }
+
 public String getUserName() {
-	return UserName;
+	return userName;
 }
 
 public void setUserName(String userName) {
-	UserName = userName;
+	this.userName = userName;
 }
 
-/**
- * @return the firstName
- */
-
-/**
- * @return the emailId
- */
 public String getEmailId() {
-	return EmailId;
+	return emailId;
 }
 
-/**
- * @param emailId the emailId to set
- */
 public void setEmailId(String emailId) {
-	EmailId = emailId;
+	this.emailId = emailId;
 }
 
-/**
- * @return the password
- */
 public String getPassword() {
-	return Password;
+	return password;
 }
 
-/**
- * @param password the password to set
- */
 public void setPassword(String password) {
-	Password = password;
+	this.password = password;
 }
 
-/**
- * @return the conformPassword
- */
-public String getConformPassword() {
-	return ConformPassword;
-}
-
-/**
- * @param conformPassword the conformPassword to set
- */
-public void setConformPassword(String conformPassword) {
-	ConformPassword = conformPassword;
-}
-
-/**
- * @return the contactNumber
- */
 public int getContactNumber() {
-	return ContactNumber;
+	return contactNumber;
 }
 
-/**
- * @param contactNumber the contactNumber to set
- */
 public void setContactNumber(int contactNumber) {
-	ContactNumber = contactNumber;
+	this.contactNumber = contactNumber;
 }
 
-/**
- * @return the address
- */
 public String getAddress() {
-	return Address;
+	return address;
 }
 
-/**
- * @param address the address to set
- */
 public void setAddress(String address) {
-	Address = address;
+	this.address = address;
 }
 
-/**
- * @return the zipcode
- */
 public int getZipcode() {
-	return Zipcode;
+	return zipcode;
 }
 
-/**
- * @param zipcode the zipcode to set
- */
 public void setZipcode(int zipcode) {
-	Zipcode = zipcode;
+	this.zipcode = zipcode;
 }
-
-
-/**
- * @return the role
- */
 
 
 

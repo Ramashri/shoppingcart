@@ -2,6 +2,7 @@ package com.niit.ShoppingCartBackend.DAO;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.ShoppingCartBackend.Model.Cart;
+import com.niit.ShoppingCartBackend.Model.Category;
 
 @Repository("CartDAO")
 public class CartDAOImpl implements CartDAO {
@@ -23,9 +25,12 @@ public class CartDAOImpl implements CartDAO {
 	
 	@Transactional
 	public List<Cart> list() {
-		// TODO Auto-generated method stub
-		return null;
+		@SuppressWarnings({ "unchecked" })
+		List<Cart> listCart = (List<Cart>) sessionFactory.getCurrentSession().createCriteria(Cart.class)
+				.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
+		return listCart;
 	}
+
 
 	@Transactional
 	public Cart getByCartId(int cartid) {
@@ -66,6 +71,24 @@ public class CartDAOImpl implements CartDAO {
 		return null;
 
 	}
+	
+	@Transactional
+	public  List<Cart> getByEmailId(String email) {
+		String hql = "from Cart where EmailId ='" + email +"'";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		@SuppressWarnings("unchecked")
+		List<Cart> list = (List<Cart>) query.list();
+		
+		return list;
+	}
+	
+	@Transactional
+	public Long getTotalAmount(int id) {
+	String hql = "select sum(total) from Cart where userId = " + "'" + id + "'" + "and status = '" + "N" +"'";
+	Query query = sessionFactory.getCurrentSession().createQuery(hql);
+	Long sum = (Long) query.uniqueResult();
+		return sum;
+	}
 
 	@Transactional
 	public void saveOrUpdate(Cart cart) {
@@ -81,6 +104,7 @@ public class CartDAOImpl implements CartDAO {
 		sessionFactory.getCurrentSession().delete(cartToDelete);
 		
 	}
-
 	
+	
+
 }	

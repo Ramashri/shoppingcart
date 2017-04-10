@@ -7,6 +7,8 @@ import com.niit.ShoppingCartBackend.Model.Shippingaddress;
 public interface ShippingaddressDAO {
 	
 	    public List<Shippingaddress> list();
+	    
+	    public List<Shippingaddress> list(String EmailId);
 		
 		public Shippingaddress getByShippingAddress(String shippingaddress);
 		

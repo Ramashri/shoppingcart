@@ -2,6 +2,7 @@ package com.niit.ShoppingCartBackend.DAO;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.ShoppingCartBackend.Model.Billingaddress;
+import com.niit.ShoppingCartBackend.Model.Category;
 
 @Repository("BillingaddressDAO")
 public class BillingaddressDAOImpl implements BillingaddressDAO {
@@ -21,9 +23,11 @@ private  SessionFactory sessionFactory;
 
 @Transactional
 	public List<Billingaddress> list() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	@SuppressWarnings({ "unchecked" })
+	List<Billingaddress> listBillingaddress = (List<Billingaddress>) sessionFactory.getCurrentSession().createCriteria(Billingaddress.class)
+			.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
+	return listBillingaddress;
+}
 
 @Transactional
 	public Billingaddress getByBillId(int billid) {
@@ -68,7 +72,7 @@ private  SessionFactory sessionFactory;
 @Transactional
 	public void delete(String BillingAddress) {
 	Billingaddress billingaddressToDelete = new Billingaddress();
-	billingaddressToDelete.setBillingAddress(BillingAddress);
+	billingaddressToDelete.setAddress(BillingAddress);
 	sessionFactory.getCurrentSession().delete(billingaddressToDelete);
 		
 	}

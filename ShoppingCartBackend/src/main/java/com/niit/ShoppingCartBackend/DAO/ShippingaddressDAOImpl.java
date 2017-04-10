@@ -2,11 +2,13 @@ package com.niit.ShoppingCartBackend.DAO;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
 import com.niit.ShoppingCartBackend.Model.Shippingaddress;
 
 @Repository("ShippingaddressDAO")
@@ -21,8 +23,10 @@ public class ShippingaddressDAOImpl implements ShippingaddressDAO {
 	
 	@Transactional
 	public List<Shippingaddress> list() {
-		// TODO Auto-generated method stub
-		return null;
+		@SuppressWarnings({ "unchecked" })
+		List<Shippingaddress> listShippingaddress = (List<Shippingaddress>) sessionFactory.getCurrentSession().createCriteria(Shippingaddress.class)
+				.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
+		return listShippingaddress;
 	}
 
 	@Transactional
@@ -87,7 +91,7 @@ public class ShippingaddressDAOImpl implements ShippingaddressDAO {
 	@Transactional
 	public void delete(String Shippingaddress) {
 		Shippingaddress shippingaddressToDelete = new Shippingaddress();
-		shippingaddressToDelete.setShippingAddress(Shippingaddress);
+		shippingaddressToDelete.setAddress(Shippingaddress);
 		sessionFactory.getCurrentSession().delete(shippingaddressToDelete);
 		
 	}
@@ -96,6 +100,16 @@ public class ShippingaddressDAOImpl implements ShippingaddressDAO {
 	public void editShippingAddress(Shippingaddress shippingaddress) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	@Transactional
+	public List<Shippingaddress> list(String EmailId) {
+		String hql = "from Shippingaddress where EmailId ='" + EmailId +"'";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		@SuppressWarnings("unchecked")
+		List<Shippingaddress> list = (List<Shippingaddress>) query.list();
+		
+		return list;
 	}
 
 }

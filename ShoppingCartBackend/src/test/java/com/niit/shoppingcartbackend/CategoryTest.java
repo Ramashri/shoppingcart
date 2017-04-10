@@ -60,7 +60,7 @@ public class CategoryTest {
 		user.setUserName("skfr");
 		user.setEmailId("jhvd@gmail.com");
 		user.setPassword("jfkd");
-		user.setConformPassword("hjsg");
+		
 		user.setContactNumber(98765);
 		user.setAddress("s12,sejkajdh");
 		user.setZipcode(75426);
@@ -79,7 +79,7 @@ public class CategoryTest {
 		product.setProductName("fdknmfg");
 		productDAO.saveOrUpdate(product);
 		
-		billingaddress.setBillingAddress("hfdjdufuinv");
+		billingaddress.setAddress("hfdjdufuinv");
 		billingaddress.setContactNumber(897465);
 		billingaddressDAO.saveOrUpdate(billingaddress);
 		
@@ -97,7 +97,7 @@ public class CategoryTest {
 		whishlist.setPrice(87);
 		wishlistDAO.saveOrUpdate(whishlist);
 		
-		shippingaddress.setShippingAddress("fdgfs");
+		shippingaddress.setAddress("fdgfs");
 		shippingaddress.setUserName("jkfgjd");
 		shippingaddressDAO.saveOrUpdate(shippingaddress);
 		

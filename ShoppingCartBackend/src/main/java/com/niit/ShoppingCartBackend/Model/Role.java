@@ -23,18 +23,14 @@ public class Role {
 	private int UserId;
 	
 	private String role;	
-	private String UserName;
-	private String EmailId;
-	private int ContactNumber;
+	private String userName;
+	private String emailId;
+	private int contactNumber;
 	
 	
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="UserId")
-private User user;
-	
-	
-	
-
+   private User user;
 	
 	
 	/**
@@ -59,25 +55,24 @@ private User user;
 	public void setUserId(int userId) {
 		UserId = userId;
 	}
+	
 	public String getUserName() {
-		return UserName;
+		return userName;
 	}
 	public void setUserName(String userName) {
-		UserName = userName;
+		this.userName = userName;
 	}
 	public String getEmailId() {
-		return EmailId;
+		return emailId;
 	}
 	public void setEmailId(String emailId) {
-		EmailId = emailId;
+		this.emailId = emailId;
 	}
-
-	public long getContactNumber() {
-		return ContactNumber;
+	public int getContactNumber() {
+		return contactNumber;
 	}
-	
 	public void setContactNumber(int contactNumber) {
-		ContactNumber = contactNumber;
+		this.contactNumber = contactNumber;
 	}
 	public String getRole() {
 		return role;

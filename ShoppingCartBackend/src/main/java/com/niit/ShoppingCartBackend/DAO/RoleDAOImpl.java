@@ -2,12 +2,14 @@ package com.niit.ShoppingCartBackend.DAO;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.niit.ShoppingCartBackend.Model.Billingaddress;
 import com.niit.ShoppingCartBackend.Model.Role;
 
 @Repository("RoleDAO")
@@ -22,8 +24,10 @@ public class RoleDAOImpl implements RoleDAO {
     
 	@Transactional
 	public List<Role> list() {
-		// TODO Auto-generated method stub
-		return null;
+		@SuppressWarnings({ "unchecked" })
+		List<Role> listRole = (List<Role>) sessionFactory.getCurrentSession().createCriteria(Role.class)
+				.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
+		return listRole;
 	}
  
 	@Transactional

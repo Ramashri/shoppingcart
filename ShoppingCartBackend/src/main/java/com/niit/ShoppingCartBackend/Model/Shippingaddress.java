@@ -10,41 +10,61 @@ import org.springframework.stereotype.Component;
 @Entity
 @Component
 public class Shippingaddress {
-	
-	
-@Id
-@GeneratedValue
-	private int ShippingId;
 
-	private String UserName;
-    private String ShippingAddress;
+	@Id
+	@GeneratedValue
+	private int shippingId;
+
+	private int userId;
+	private String emailId;
+	private String userName;
+	private int contactNumber;
+	private String address;
+	private int zipcode;
 	
-	/**
-	 * @return the userName
-	 */
+	public int getShippingId() {
+		return shippingId;
+	}
+	public void setShippingId(int shippingId) {
+		this.shippingId = shippingId;
+	}
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+	public String getEmailId() {
+		return emailId;
+	}
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
+	}
 	public String getUserName() {
-		return UserName;
+		return userName;
 	}
-	/**
-	 * @param userName the userName to set
-	 */
 	public void setUserName(String userName) {
-		UserName = userName;
+		this.userName = userName;
 	}
-	/**
-	 * @return the shippingAddress
-	 */
-	public String getShippingAddress() {
-		return ShippingAddress;
+	public int getContactNumber() {
+		return contactNumber;
 	}
-	/**
-	 * @param shippingaddress the shippingAddress to set
-	 */
-	public void setShippingAddress(String shippingaddress) {
-		ShippingAddress = shippingaddress;
+	public void setContactNumber(int contactNumber) {
+		this.contactNumber = contactNumber;
 	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public int getZipcode() {
+		return zipcode;
+	}
+	public void setZipcode(int zipcode) {
+		this.zipcode = zipcode;
+	}
+
 	
-	
-	
-	
+
 }
