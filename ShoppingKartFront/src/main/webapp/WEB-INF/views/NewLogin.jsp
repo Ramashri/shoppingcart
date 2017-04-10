@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,6 +27,13 @@
     </div>
     <div class="form-group">        
       <div class="col-sm-offset-2 col-sm-10">
+       <c:if test="${not empty error}">
+				<div class="error"><b>${error}</b></div>
+	 			</c:if> 
+				<c:if test="${not empty logout}">
+			<div class="msg"><b>${logout}</b></div>
+				</c:if>				
+				<b>${message}</b>
         <button type="submit" class="btn btn-default">Login</button>
       </div>
     </div>

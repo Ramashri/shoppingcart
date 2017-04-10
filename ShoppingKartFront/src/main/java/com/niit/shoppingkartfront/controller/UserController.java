@@ -1,6 +1,7 @@
 package com.niit.shoppingkartfront.controller;
 
 import java.security.Principal;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,9 +9,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.niit.ShoppingCartBackend.DAO.BillingaddressDAO;
+import com.niit.ShoppingCartBackend.DAO.ProductDAO;
 import com.niit.ShoppingCartBackend.DAO.RoleDAO;
+import com.niit.ShoppingCartBackend.DAO.ShippingaddressDAO;
 import com.niit.ShoppingCartBackend.DAO.UserDAO;
+import com.niit.ShoppingCartBackend.Model.Billingaddress;
+import com.niit.ShoppingCartBackend.Model.Product;
 import com.niit.ShoppingCartBackend.Model.Role;
+import com.niit.ShoppingCartBackend.Model.Shippingaddress;
 import com.niit.ShoppingCartBackend.Model.User;
 
 @Controller
@@ -19,6 +26,13 @@ public class UserController {
 	@Autowired
 	private UserDAO userDAO;
 
+	@Autowired
+	private ShippingaddressDAO shippingaddressDAO;
+	@Autowired
+	private BillingaddressDAO billingaddressDAO;
+	
+	@Autowired
+	private ProductDAO productDAO;
 
 	
 	@Autowired
@@ -28,7 +42,7 @@ public class UserController {
 	private Role role;
 
 	@RequestMapping("addNewUser")
-	public String addUser(@ModelAttribute User user) {
+	public String addUser(@ModelAttribute User user, @ModelAttribute Shippingaddress shippingaddress, @ModelAttribute Billingaddress billingaddress, Model model) {
 
 		user.setEnabled(true);
 		role.setEmailId(user.getEmailId());
@@ -42,9 +56,13 @@ public class UserController {
 		userDAO.saveOrUpdate(user);
 		roleDAO.saveOrUpdate(role);
 		
+		shippingaddress.setUserId(user.getUserId());
+		shippingaddressDAO.saveOrUpdate(shippingaddress);
 		
-		
-		return "NewLogin";
+		billingaddress.setUserId(user.getUserId());
+		billingaddressDAO.saveOrUpdate(billingaddress);
+		model.addAttribute("loginButtonClicked", true);
+		return "home";
 
 	}
 	@RequestMapping("/afterlogin")
@@ -63,7 +81,8 @@ public class UserController {
 			return "AdminLogin";
 		}
 		else if(role1.equals("ROLE_USER")){
-			
+			List<Product> productList = productDAO.list();
+			model.addAttribute("productList", productList);
 			return "UserLogin";
 		}
 		else{		

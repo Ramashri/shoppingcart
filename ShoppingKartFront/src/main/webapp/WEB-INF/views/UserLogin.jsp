@@ -7,9 +7,30 @@
 <title>Insert title here</title>
 </head>
 <body>
-Welcome user
+
+<font color="#0066ff">Welcome ${pageContext.request.userPrincipal.name}</font><br><br>
+
+<h1><a><font color="#ff0066">Shopping Cart</font></a></h1>
 
 <%@include file="/WEB-INF/views/Menu.jsp" %>
+<br>
 
+
+  <c:choose>
+  
+  <c:when test="${not empty productDescClicked}">
+     
+    <%@include file="/WEB-INF/views/ProductDescription.jsp" %>
+     </c:when>
+       <c:when test="${not empty myCartClicked}">    
+     
+      <%@include file="/WEB-INF/views/MyCart.jsp" %>
+     </c:when>
+     <c:when test="${not empty viewShippingAddressClicked}">    
+     
+      <%@include file="/WEB-INF/views/ViewShippingaddress.jsp" %>
+     </c:when>
+  <c:otherwise> <%@include file="/WEB-INF/views/productList.jsp" %></c:otherwise>
+  </c:choose>
 </body>
 </html>

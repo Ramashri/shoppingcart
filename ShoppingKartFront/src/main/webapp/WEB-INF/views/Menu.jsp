@@ -116,13 +116,17 @@ li a:hover {
                                 <li><a href="cartPage">Cart</a></li>
                                 <li><a href="billingaddressPage">Billing Address</a></li>
                                 <li><a href="shippingaddressPage">Shipping Address</a></li>
-                                <li><a href="#/home.html">Home</a></li>
-                                <c:if test="${pageContext.request.userPrincipal.name != null }">
-                                <li style="float:right"><a href="/home.html">Logout</a></li>
+                                <li><a href="home.html">Home</a></li>
+                                   <c:if test="${pageContext.request.userPrincipal.name != null }">
+                               <li style="float:right"><a href="myCart">My Cart</a></li> 
+                                
+                             
+                                <li style="float:right"><a href="j_spring_security_logout">Logout</a></li>
                                 </c:if>
                                  <c:if test="${pageContext.request.userPrincipal.name == null }">
-                                  <li style="float:right"><a href="loginPage">Login</button></li>
-                                <li style="float:right"><a href="signupPage">Signup</a></li>                               
+                                 <li style="float:right"><a href="loginPage">Login</button></li>
+                                <li style="float:right"><a href="signupPage">Signup</a></li> 
+                                                              
                                
                                </c:if>
       </ul>

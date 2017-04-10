@@ -1,6 +1,6 @@
 <form action="supplierEdited" method="post">
 
-  SupplierId:<br>
+ <br><br><br> SupplierId:<br>
   <input type="text" name="SupplierId" value="${supplier.supplierId}" readonly="true"  ><br><br>
   Supplier Name:<br>
   <input type="text" name="SupplierName" value="${supplier.supplierName}"><br><br>

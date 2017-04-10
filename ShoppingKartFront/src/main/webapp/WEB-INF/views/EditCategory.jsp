@@ -1,6 +1,6 @@
 
 <form action="categoryEdited" method="post">
-  Category Id:<br>
+  <br><br><br>Category Id:<br>
   <input type="text" name="categoryId" value="${category.categoryId}" readonly="true"><br><br>
   Category Name:<br>
   <input type="text" name="categoryName" value="${category.categoryName}" ><br><br>

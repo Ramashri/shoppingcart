@@ -9,18 +9,18 @@
 <title>Insert title here</title>
 </head>
 <body>
-Welcome Admin
-<div id="logo">
-			<h1><a href="/" id="logoLink">Shopping Cart</a></h1>
-		</div>
+<font color="#0066ff">Welcome ${pageContext.request.userPrincipal.name}</font><br><br>
+
+			<h1><a><font color="#ff0066">Shopping Cart</font></a></h1>
+		
 <div id="nav">
 <nav role="sub">
-			<ul>  
+			
 
 <%@include file="/WEB-INF/views/Menu.jsp" %>
 
-  </ul>
   </div>
+  <ul style="list-style: none;">
   
      <div class="dropdown">
    <button class="dropbtn"><li>Category</li></button>
@@ -45,6 +45,8 @@ Welcome Admin
       <a href="supplierPage">Add</a>
     </div>
   </div> 
+  </ul>
+  
   
   <c:choose>
      <c:when test="${not empty AddCategoryButtonClicked}">    
@@ -91,7 +93,7 @@ Welcome Admin
    
      </c:when>
      
-     <c:otherwise>Welcome Admin!!!!!!!!!!!</c:otherwise>
+     
      </c:choose> 
 </body>
 </html>

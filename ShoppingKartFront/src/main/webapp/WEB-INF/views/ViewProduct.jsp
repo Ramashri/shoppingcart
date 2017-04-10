@@ -1,7 +1,22 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-List of Product
+<br><br><br>List of Product<br><br>
 
-<table  width="50%" class="table table-hover">
+<head>
+<style>
+table, th, td{
+          border:1px solid black;
+          border-collapse: collapse;
+}
+th,td{
+    padding:5px;
+}
+th {
+    text-align: left;
+}
+</style>
+</head>
+<body>
+<table  style ="width:100%">
 	<tr>
 	    <th align="left">S.No</th>
 		<th align="left">Id</th>

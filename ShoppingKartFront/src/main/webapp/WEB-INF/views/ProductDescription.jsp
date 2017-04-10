@@ -27,9 +27,12 @@
   <li class="span2"><h5 style="color: #99003d" >${product.productName}</h5>
   <h6 style="color: #99003d">Price:${product.price}</h6></li></ul>
   <div class="w3-container">
-  <p><button class="w3-button w3-pink">Add To Cart</button></p> 
-  <p><button align="left" class="w3-button w3-purple">Go Back</button></p>       
+  <p><a href="addtocart?productId=${product.productId}"><button class="w3-button w3-pink">Add To Cart</button></a></p>
+  <p><a href="afterlogin"><button align="left" class="w3-button w3-purple">Go Back</button></a></p> 
+       
 </div>
 </div>
+<
 </body>
 </html>
+

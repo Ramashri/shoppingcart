@@ -1,6 +1,6 @@
 
 <form action="productEdited" method="post">
-  Product Id:<br>
+  <br><br><br>Product Id:<br>
   <input type="text" name="ProductId" value="${product.productId}" readonly="true" ><br><br>
   Product Name:<br>
   <input type="text" name="ProductName" value="${product.productName}"><br><br>

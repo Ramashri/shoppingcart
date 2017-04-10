@@ -38,11 +38,11 @@ li a {
 </style>
 </head>
 <body>
-<div id="logo">
-			<h1><a href="/" id="logoLink">Shopping Cart</a></h1>
-		</div>		
+
+			<h1><a><font color="#ff0066">Shopping Cart</font></a></h1>
+		
  <%@include file="/WEB-INF/views/Menu.jsp" %>
- 
+ <%@include file="/WEB-INF/views/Carousel.jsp" %>
   <c:choose>
      <c:when test="${not empty loginButtonClicked}">    
      

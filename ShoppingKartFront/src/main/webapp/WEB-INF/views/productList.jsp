@@ -12,7 +12,7 @@ div.gallery {
     float: left;
     width: 250px;
     height: 100%;
-    padding: 15px;
+    padding: 30px;
     
 }
 
