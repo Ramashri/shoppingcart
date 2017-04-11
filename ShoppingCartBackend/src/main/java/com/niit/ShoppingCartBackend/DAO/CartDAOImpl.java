@@ -98,11 +98,34 @@ public class CartDAOImpl implements CartDAO {
 	}
 
 	@Transactional
-	public void delete(int productid) {
+	public void delete(int cartId) {
 		Cart cartToDelete = new Cart();
-		cartToDelete.setProductId(productid);
+		cartToDelete.setCartId(cartId);
 		sessionFactory.getCurrentSession().delete(cartToDelete);
 		
+	}
+	@Transactional
+	public boolean itemAlreadyExist(String emailId, int productId, boolean b) {
+		String hql = "from Cart where emailId= '" + emailId + "' and " + " productId ='" + productId+"'";
+		org.hibernate.Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		@SuppressWarnings("unchecked")
+		List<Cart> list = (List<Cart>) query.list();
+		if (list != null && !list.isEmpty()) {
+			return true;
+		}
+		return false;
+	}
+	@Transactional
+	public Cart getByUserandProduct(String emailId, int productId) {
+		String hql = "from Cart where emailId= '" + emailId + "' and " + " productId ='" + productId+"'";
+		org.hibernate.Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		@SuppressWarnings("unchecked")
+		List<Cart> listCart = (List<Cart>) query.list();
+		
+		if (listCart != null && !listCart.isEmpty()){
+			return listCart.get(0);
+		}
+		return null;
 	}
 	
 	

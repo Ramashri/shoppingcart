@@ -32,7 +32,7 @@ public class RoleDAOImpl implements RoleDAO {
  
 	@Transactional
 	public Role getByUserName(String username) {
-		String hql = "from Role where UserName ='" + username + "'";
+		String hql = "from Role where userName ='" + username + "'";
 		Query query = (Query) sessionFactory.getCurrentSession().createQuery(hql);
 		@SuppressWarnings("unchecked")
 		List<Role> listRole = (List<Role>) (query).list();
@@ -45,7 +45,7 @@ public class RoleDAOImpl implements RoleDAO {
 
 	@Transactional
 	public Role getByEmailId(String emailid) {
-		String hql = "from Role where EmailId ='" + emailid + "'";
+		String hql = "from Role where emailId ='" + emailid + "'";
 		Query query = (Query) sessionFactory.getCurrentSession().createQuery(hql);
 		@SuppressWarnings("unchecked")
 		List<Role> listRole = (List<Role>) (query).list();
@@ -58,7 +58,7 @@ public class RoleDAOImpl implements RoleDAO {
 
 	@Transactional
 	public Role getByContactNumber(int contactnumber) {
-		String hql = "from Role where ContactNumber ='" + contactnumber + "'";
+		String hql = "from Role where contactNumber ='" + contactnumber + "'";
 		Query query = (Query) sessionFactory.getCurrentSession().createQuery(hql);
 		@SuppressWarnings("unchecked")
 		List<Role> listRole = (List<Role>) (query).list();

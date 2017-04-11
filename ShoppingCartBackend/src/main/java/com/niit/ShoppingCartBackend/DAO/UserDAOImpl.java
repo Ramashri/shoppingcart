@@ -32,7 +32,7 @@ public class UserDAOImpl  implements UserDAO{
 
 	@Transactional
 	public User getByUserId(int userid) {
-		String hql = "from User where UserId ='" + userid + "'";
+		String hql = "from User where userId ='" + userid + "'";
 		Query query = (Query) sessionFactory.getCurrentSession().createQuery(hql);
 		@SuppressWarnings("unchecked")
 		List<User> listUser = (List<User>) (query).list();
@@ -47,7 +47,7 @@ public class UserDAOImpl  implements UserDAO{
 
 	@Transactional
 	public User getByEmailId(String emailid) {
-		String hql = "from User where EmailId ='" + emailid + "'";
+		String hql = "from User where emailId ='" + emailid + "'";
 		Query query = (Query) sessionFactory.getCurrentSession().createQuery(hql);
 		@SuppressWarnings("unchecked")
 		List<User> listUser = (List<User>) (query).list();
@@ -61,7 +61,7 @@ public class UserDAOImpl  implements UserDAO{
 	
 	@Transactional
 	public User getByPassword(String password) {
-		String hql = "from User where Password ='" + password + "'";
+		String hql = "from User where password ='" + password + "'";
 		Query query = (Query) sessionFactory.getCurrentSession().createQuery(hql);
 		@SuppressWarnings("unchecked")
 		List<User> listUser = (List<User>) (query).list();
@@ -73,7 +73,7 @@ public class UserDAOImpl  implements UserDAO{
 	}
 	
 	public User getByConformPassword(String conformpassword) {
-		String hql = "from User where ConformPassword ='" + conformpassword + "'";
+		String hql = "from User where conformPassword ='" + conformpassword + "'";
 		Query query = (Query) sessionFactory.getCurrentSession().createQuery(hql);
 		@SuppressWarnings("unchecked")
 		List<User> listUser = (List<User>) (query).list();
@@ -87,7 +87,7 @@ public class UserDAOImpl  implements UserDAO{
 
 	@Transactional
 	public User getByContactNumber(int contactnumber) {
-		String hql = "from User where ContactNumber ='" + contactnumber + "'";
+		String hql = "from User where contactNumber ='" + contactnumber + "'";
 		Query query = (Query) sessionFactory.getCurrentSession().createQuery(hql);
 		@SuppressWarnings("unchecked")
 		List<User> listUser = (List<User>) (query).list();
@@ -100,7 +100,7 @@ public class UserDAOImpl  implements UserDAO{
 
 	@Transactional
 	public User getByAddress(String address) {
-		String hql = "from User where Address ='" + address + "'";
+		String hql = "from User where address ='" + address + "'";
 		Query query = (Query) sessionFactory.getCurrentSession().createQuery(hql);
 		@SuppressWarnings("unchecked")
 		List<User> listUser = (List<User>) (query).list();
@@ -114,7 +114,7 @@ public class UserDAOImpl  implements UserDAO{
 	
 	@Transactional
 	public User getByZipcode(int zipcode) {
-		String hql = "from User where Zipcode ='" + zipcode + "'";
+		String hql = "from User where zipcode ='" + zipcode + "'";
 		Query query = (Query) sessionFactory.getCurrentSession().createQuery(hql);
 		@SuppressWarnings("unchecked")
 		List<User> listUser = (List<User>) (query).list();
@@ -127,7 +127,7 @@ public class UserDAOImpl  implements UserDAO{
 	}
 	
 	public User getByRole(String role) {
-		String hql = "from User where Role ='" + role + "'";
+		String hql = "from User where role ='" + role + "'";
 		Query query = (Query) sessionFactory.getCurrentSession().createQuery(hql);
 		@SuppressWarnings("unchecked")
 		List<User> listUser = (List<User>) (query).list();
@@ -155,7 +155,7 @@ public class UserDAOImpl  implements UserDAO{
 	}
 
 	public User getByUserName(String username) {
-		String hql = "from User where UserName ='" + username + "'";
+		String hql = "from User where userName ='" + username + "'";
 		Query query = (Query) sessionFactory.getCurrentSession().createQuery(hql);
 		@SuppressWarnings("unchecked")
 		List<User> listUser = (List<User>) (query).list();
@@ -166,7 +166,21 @@ public class UserDAOImpl  implements UserDAO{
 	}
 		return null;
 	}
+	@Transactional
+	public boolean isAllReadyRegister(String email, boolean b) {
+		
+		String hql = "from User where emailId ='"+ email +"'";
+				
+					
+		org.hibernate.Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		@SuppressWarnings("unchecked")
+		List<User> list = (List<User>) query.list();
+		if (list != null && !list.isEmpty()) {
+			return true;
+		}
+		return false;
 
+	}
 	
 
 }

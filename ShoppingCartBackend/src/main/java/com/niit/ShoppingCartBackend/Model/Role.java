@@ -30,7 +30,7 @@ public class Role {
 	
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="UserId")
-   private User user;
+    private User user;
 	
 	
 	/**

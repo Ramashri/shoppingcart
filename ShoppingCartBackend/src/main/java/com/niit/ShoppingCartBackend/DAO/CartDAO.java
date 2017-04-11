@@ -19,8 +19,11 @@ public Cart getByProductName(String productname);
 
 public void saveOrUpdate(Cart cart);
 	
-public void delete(int productid);
+public void delete(int cartId);
 
 public Long getTotalAmount(int id);
 
+public boolean itemAlreadyExist(String emailId, int productId, boolean b);
+
+public Cart getByUserandProduct(String emailId, int productId);
 }

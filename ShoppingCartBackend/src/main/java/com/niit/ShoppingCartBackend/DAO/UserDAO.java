@@ -16,7 +16,7 @@ public interface UserDAO {
 		
 		public User getByEmailId(String emailid);
 		
-	    public User getByPassword(String password);
+	   /* public User getByPassword(String password);
 	    
 	    public User getByConformPassword(String conformpassword);
 	    
@@ -26,7 +26,9 @@ public interface UserDAO {
 	    
 	    public User getByZipcode(int zipcode);
 	    
-	    public User getByRole(String role);
+	    public User getByRole(String role);*/
+		
+		public boolean isAllReadyRegister(String email, boolean b);
 		
 		public void saveOrUpdate(User user);
 			
