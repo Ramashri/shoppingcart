@@ -14,7 +14,7 @@
 <div class="container">
   <form action="isvaliduser" method="post" class="form-horizontal">
     <div class="form-group">
-      <label class="control-label col-sm-2" for="emailid">EmailId:</label>
+     <br><br> <label class="control-label col-sm-2" for="emailid">EmailId:</label>
       <div class="col-sm-10">
         <input type="email" name="EmailId" class="form-control" id="emailid" placeholder="Enter email">
       </div>
@@ -34,7 +34,7 @@
 			<div class="msg"><b>${logout}</b></div>
 				</c:if>				
 				<b>${message}</b>
-        <button type="submit" class="btn btn-default">Login</button>
+        <br><br><button type="submit" class="btn btn-default">Login</button>
       </div>
     </div>
   </form>

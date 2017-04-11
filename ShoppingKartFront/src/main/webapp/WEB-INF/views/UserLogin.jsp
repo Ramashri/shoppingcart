@@ -30,6 +30,10 @@
      
       <%@include file="/WEB-INF/views/ViewShippingaddress.jsp" %>
      </c:when>
+      <c:when test="${newShippingaddressClicked == 'true'}">    
+     
+      <%@include file="/WEB-INF/views/NewShippingaddress.jsp" %>
+     </c:when>
   <c:otherwise> <%@include file="/WEB-INF/views/productList.jsp" %></c:otherwise>
   </c:choose>
 </body>

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,6 +5,7 @@
 <title>Shopping Cart</title>
 	
 <style>
+body {margin: 0;}
 a{
 	color: white;
 	text-decoration: none;
@@ -35,6 +35,7 @@ li a {
 
 #page{ margin: 20px; }
 
+
 </style>
 </head>
 <body>
@@ -62,5 +63,9 @@ li a {
      <c:otherwise> <%@include file="/WEB-INF/views/productList.jsp" %></c:otherwise>
      </c:choose> 
      
+   
+</div>
+     
 </body>
+
 </html>

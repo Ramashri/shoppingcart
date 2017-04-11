@@ -52,14 +52,17 @@ li a, .dropdown {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
 p{ line-height: 1em; }
+
 h1, h2, h3, h4{
 
-        color: #ed2553;
+    color: #ed2553;
 	margin: 0 0 .1em 0;
 }
 h1{ font-size: 1.7em; }
 h2{ font-size: 1.5em; }
+
 a{
 	color: black;
 	text-decoration: none;
@@ -81,7 +84,7 @@ body{
 #nav ul {
     list-style-type: none;
     margin:0;
-    padding: 1px 1px;
+   
     overflow: hidden;
     background-color:#0099ff;
 }
@@ -112,17 +115,22 @@ li a:hover {
 		
 	
 		<div id="nav">
-			<ul>  
-                                <li><a href="cartPage">Cart</a></li>
-                                <li><a href="billingaddressPage">Billing Address</a></li>
-                                <li><a href="shippingaddressPage">Shipping Address</a></li>
-                                <li><a href="home.html">Home</a></li>
+		
+			<ul>
+			                 
+			
+                                <li><a href="">Titan</a>
+                                <li><a href="">Fast Track</a></li>
+                                <li><a href="home.jsp">Home</a></li>
                                    <c:if test="${pageContext.request.userPrincipal.name != null }">
+                                   
+                                   <li style="float:right"><a href="j_spring_security_logout">Logout</a></li>
+                                   
+                                    <c:if test="${not empty userLoggedIn}">
                                <li style="float:right"><a href="myCart">My Cart</a></li> 
-                                
-                             
-                                <li style="float:right"><a href="j_spring_security_logout">Logout</a></li>
+                               </c:if>
                                 </c:if>
+                                
                                  <c:if test="${pageContext.request.userPrincipal.name == null }">
                                  <li style="float:right"><a href="loginPage">Login</button></li>
                                 <li style="float:right"><a href="signupPage">Signup</a></li> 

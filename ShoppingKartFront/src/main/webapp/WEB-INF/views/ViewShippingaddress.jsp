@@ -9,21 +9,25 @@
 
 </head>
 <body>
-<div>
 
-<span style="float: center">New Shipping Address</span>
-</div>
-<div style="width:500px;heigth:500px;border:5px solid gray;">
-<font color="#ff0066">Shipping address</font><br><br>
+<button type="button"><span style="float: center;"><a href="shippingaddressPage">New Shipping Address</a></span></button><br><br>
+
+
 <c:forEach items="${shippingList}" var="shipping" >
-${shipping.userName}<br>
-${shipping.emailId}<br>
-${shipping.contactNumber}<br>
-${shipping.address}<br>
-${shipping.zipcode}
+<div class="col-sm-3 col-sm-offset-1" style="width:300px;heigth:500px;border:5px solid grey; float: left; margin-left: 1.5em;" >
+<br><font color="#ff0066">Shipping address</font><br><br>
+
+
+Name:${shipping.userName}<br>
+
+Contact Number:${shipping.contactNumber}<br>
+Address:${shipping.address}<br>
+Zipcode:${shipping.zipcode}
+
+<br><br><button ><a href="loginPage?">Deliver Here</a></button><br><br>
 </div>
 </c:forEach>
-</div>
+<br><br>
 
 </body>
 </html>

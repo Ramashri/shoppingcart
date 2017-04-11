@@ -17,6 +17,13 @@ public class CategoryController {
 	
 		@Autowired
 		private CategoryDAO categoryDAO;
+		@RequestMapping("categoryPage")
+		public String NewCategory(Model model)	{
+			
+			model.addAttribute("AddCategoryButtonClicked", true);
+			return "AdminLogin";
+			
+		}
 		
 		@RequestMapping("addCategory")
 		public String addCategory(@ModelAttribute Category category, Model model){

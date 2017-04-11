@@ -8,9 +8,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.niit.ShoppingCartBackend.DAO.ShippingaddressDAO;
+import com.niit.ShoppingCartBackend.DAO.UserDAO;
 import com.niit.ShoppingCartBackend.Model.Shippingaddress;
+import com.niit.ShoppingCartBackend.Model.User;
 
 
 
@@ -19,10 +22,26 @@ public class ShippingaddressController {
 	@Autowired
 	private ShippingaddressDAO shippingaddressDAO;
 	
+	@Autowired
+	private UserDAO userDAO;
+	
+	
+
+	@RequestMapping("shippingaddressPage")
+	public ModelAndView newShippingaddress(){
+		
+		ModelAndView mv = new ModelAndView("UserLogin");
+		mv.addObject("newShippingaddressClicked", "true");
+		return mv;
+	}
 	@RequestMapping("addShippingaddress")
-	public String addShippingaddress(@ModelAttribute Shippingaddress shippingaddress){
+	public String addShippingaddress(Principal p, @ModelAttribute Shippingaddress shippingaddress){
+		String email = p.getName();
+		User user = userDAO.getByEmailId(email);
+		shippingaddress.setUserId(user.getUserId());
+		shippingaddress.setEmailId(email);
 		shippingaddressDAO.saveOrUpdate(shippingaddress);
-		return "ViewShippingaddress";
+		return "redirect:proceed";
 		
 	}
 	@RequestMapping("proceed")
@@ -32,5 +51,9 @@ public class ShippingaddressController {
 		model.addAttribute("shippingList", shippingList);
 		model.addAttribute("viewShippingAddressClicked", true);
 	 return "UserLogin";
+	}
+	@ModelAttribute
+	public void commonToUser(Model model){
+		model.addAttribute("userLoggedIn", true);
 	}
 }

@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.niit.ShoppingCartBackend.DAO.SupplierDAO;
 import com.niit.ShoppingCartBackend.Model.Supplier;
@@ -18,6 +19,14 @@ public class SupplierController {
 	
 	@Autowired
 	private SupplierDAO supplierDAO;
+	@RequestMapping("supplierPage")
+	public ModelAndView newSupplier(){
+		
+		ModelAndView mv = new ModelAndView("AdminLogin");
+		mv.addObject("AddSupplierButtonClicked", true);
+		return mv;
+	}
+	
 	
 	@RequestMapping("addSupplier")
 	public String addSupplier(@ModelAttribute Supplier supplier){

@@ -7,6 +7,7 @@ import java.util.Random;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -52,14 +53,26 @@ public class CartController {
 	}
 	@RequestMapping("addtocart")
 	public String addCart(@RequestParam("productId") int productId, Principal p, Model model){
-		Product product = productDAO.getByProductId(productId);
-		String email = p.getName();
-		User user = userDAO.getByEmailId(email);
+		
+		Product product = productDAO.getByProductId(productId);		
+		User user = userDAO.getByEmailId(p.getName());		
+		Cart crt = cartDAO.getByUserandProduct(p.getName(), productId);
+		
+		if(product.getStock() > 0 ){
+			
+			if(cartDAO.itemAlreadyExist(p.getName(), productId, true)){
+				int quantity = crt.getQty() + 1;
+				crt.setQty(quantity);
+				crt.setTotal(product.getPrice() * quantity);
+				cartDAO.saveOrUpdate(crt);
+			}
+			else{
+				
 		
 		Random t = new Random();
 		int day = 2 + t.nextInt(7);
 		
-		cart.setEmailId(email);
+		cart.setEmailId(p.getName());
 		cart.setPrice(product.getPrice());
 		cart.setProductId(productId);
 		cart.setProductName(product.getProductName());
@@ -70,8 +83,21 @@ public class CartController {
 		cart.setDays(day);
 		cart.setTotal(product.getPrice()*cart.getQty());
 		cartDAO.saveOrUpdate(cart);
+			}
+		int stc = product.getStock() - 1;
+		product.setStock(stc);
 		
+		productDAO.saveOrUpdate(product);
+			
 		return "redirect:myCart";
+		}
+		else {
+			model.addAttribute("product", product);
+			model.addAttribute("productDescClicked", true);
+			model.addAttribute("message", "Out of stock");
+			return "UserLogin";
+		}
+		
 		
 	}
 	@RequestMapping("productDescription")
@@ -83,4 +109,14 @@ public class CartController {
 		
 	}
 	
+	@RequestMapping("removeCart")
+	public String removeCart(@RequestParam("cartId") int cartId, Model model){
+		cartDAO.delete(cartId);
+		return "redirect:myCart";
+	}
+	
+	@ModelAttribute
+	public void commonToUser(Model model){
+		model.addAttribute("userLoggedIn", true);
+	}
 }

@@ -34,17 +34,12 @@ div.desc {
 </style>
 </head>
 <body>
-<c:forEach items="${productList}" var="product">
-
-<div class="gallery">
-  <a href="productDescription?productId=${product.productId}">
-    <img src="resources/image/products/${product.productId}.jpg" alt="${product.productId}" width="100%" height="100%">
-  </a>
+<a href="productDescription?productId=${product.productId}">
+<img src="resources/image/products/${product.productId}.jpg" alt="${product.productId}" width="100%" height="100%">
+</a>
   <div class="desc"><ul style="list-style-type:none">
   <li class="span2"><h5 style="color: blue" >${product.productName}</h5>
   <h6>Price:${product.price}</h6></li></ul></div>
 </div>
-
-</c:forEach>
 </body>
 </html>
