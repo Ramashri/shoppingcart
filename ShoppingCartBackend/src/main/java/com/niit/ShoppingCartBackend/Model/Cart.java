@@ -30,7 +30,7 @@ public class Cart {
 	private int total;
 	private int days;
 	private String status;
-	
+	private int shippingId;
 	
 	@Generated(value = { "" })
 	@Temporal(javax.persistence.TemporalType.DATE)
@@ -38,6 +38,14 @@ public class Cart {
 
 	
 	
+	public int getShippingId() {
+		return shippingId;
+	}
+
+	public void setShippingId(int shippingId) {
+		this.shippingId = shippingId;
+	}
+
 	public String getStatus() {
 		return status;
 	}
