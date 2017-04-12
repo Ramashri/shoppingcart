@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.niit.ShoppingCartBackend.DAO.ShippingaddressDAO;
@@ -52,6 +53,13 @@ public class ShippingaddressController {
 		model.addAttribute("viewShippingAddressClicked", true);
 	 return "UserLogin";
 	}
+	@RequestMapping("shippingAddress")
+	public String shippingAddress(@RequestParam("shippingId") int shippingId, Model model){
+		
+		return null;
+		
+	}
+	
 	@ModelAttribute
 	public void commonToUser(Model model){
 		model.addAttribute("userLoggedIn", true);

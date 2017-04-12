@@ -36,10 +36,8 @@
   <p><a href="addtocart?productId=${product.productId}"><button class="w3-button w3-pink">Add To Cart</button></a></p>
   </c:if>
   <p><a href="afterlogin"><button align="left" class="w3-button w3-purple">Go Back</button></a></p> 
-       
 </div>
 </div>
-<
 </body>
 </html>
 
