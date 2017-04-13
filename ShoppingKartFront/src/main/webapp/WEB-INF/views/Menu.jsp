@@ -7,7 +7,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Shopping Cart</title>
 <style>
-
 li a, .dropdown {
     float: left;
     overflow: hidden;
@@ -117,11 +116,13 @@ li a:hover {
 		<div id="nav">
 		
 			<ul>
-			                 
-			
-                                <li><a href="">Titan</a>
-                                <li><a href="">Fast Track</a></li>
-                                <li><a href="home.jsp">Home</a></li>
+                                <c:if test="${pageContext.request.userPrincipal.name != null }">
+                               
+                                <li><a href="afterlogin">Home</a></li>
+                                </c:if>
+                                  <c:if test="${pageContext.request.userPrincipal.name == null }">
+                            <li><a href="home">Home</a></li>
+                            </c:if>
                                    <c:if test="${pageContext.request.userPrincipal.name != null }">
                                    
                                    <li style="float:right"><a href="j_spring_security_logout">Logout</a></li>

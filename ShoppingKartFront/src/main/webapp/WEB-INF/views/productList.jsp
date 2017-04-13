@@ -7,17 +7,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <style type="text/css">
 div.gallery {
-    margin: 5px;
-    border: 1px solid #ccc;
+    margin: 10px;
+    border: 5px solid #ccc;
     float: left;
     width: 250px;
-    height: 100%;
     padding: 30px;
     
 }
 
 div.gallery:hover {
-    border: 1px solid #777;
+    border: 3px solid #777;
 }
 
 div.gallery img {
@@ -38,7 +37,7 @@ div.desc {
 
 <div class="gallery">
   <a href="productDescription?productId=${product.productId}">
-    <img src="resources/image/products/${product.productId}.jpg" alt="${product.productId}" width="100%" height="100%">
+    <img src="resources/image/products/${product.productId}.jpg" alt="${product.productId}" width=250px; height=250px;>
   </a>
   <div class="desc"><ul style="list-style-type:none">
   <li class="span2"><h5 style="color: blue" >${product.productName}</h5>

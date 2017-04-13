@@ -5,7 +5,7 @@
 <title>Shopping Cart</title>
 	
 <style>
-body {margin: 0;}
+
 a{
 	color: white;
 	text-decoration: none;
@@ -34,8 +34,6 @@ li a {
 }
 
 #page{ margin: 20px; }
-
-
 </style>
 </head>
 <body>

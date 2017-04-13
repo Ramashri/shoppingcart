@@ -111,6 +111,14 @@ public class CartController {
 	
 	@RequestMapping("removeCart")
 	public String removeCart(@RequestParam("cartId") int cartId, Model model){
+		Cart cart = cartDAO.getByCartId(cartId);
+		Product product = productDAO.getByProductId(cart.getProductId());
+		
+		int qty = product.getStock() + cart.getQty();
+		
+		product.setStock(qty);
+		productDAO.saveOrUpdate(product);
+		
 		cartDAO.delete(cartId);
 		return "redirect:myCart";
 	}

@@ -18,9 +18,10 @@
 <c:forEach items="${shippingList}" var="shipping" >
 <div class="col-sm-3 col-sm-offset-1" style="width:300px;heigth:500px;border:5px solid grey; float: left; margin-left: 1.5em;" >
 
-<a href="#">
+<a href="deleteshippingAddress?shippingId=${shipping.shippingId}">
 <span style="float: right;" class="glyphicon glyphicon-trash"></span> 
-
+</a>
+<a href="editshippingAddress?shippingId=${shipping.shippingId }">
 <span style="float: right;"class="glyphicon glyphicon-pencil"></span>
 </a>
 

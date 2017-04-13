@@ -16,31 +16,31 @@
   <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Shipping Id:</label>
       <div class="col-sm-10">          
-        <input type="text" name="address" class="form-control" id="address" placeholder="Enter Shipping Id">
+        <input type="text" name="shippingId" class="form-control" id="shippingId" value="${shippingaddress.shippingId }" readonly="true" >
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="UserName"> User Name:</label>
       <div class="col-sm-10">
-        <input type="text" name="userName" class="form-control" id="userName" placeholder="Enter User Name">
+        <input type="text" name="userName" class="form-control" id="userName" value="${shippingaddress.userName }">
       </div>
     </div>
      <div class="form-group">
       <label class="control-label col-sm-2" for="contactNumber">Contact Number:</label>
       <div class="col-sm-10">
-        <input type="text" name="contactNumber" class="form-control" id="contactNumber" placeholder="Enter Contact Number">
+        <input type="text" name="contactNumber" class="form-control" id="contactNumber" value="${shippingaddress.contactNumber }">
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Shipping Address:</label>
       <div class="col-sm-10">          
-        <input type="text" name="address" class="form-control" id="address" placeholder="Enter Shipping Address">
+        <input type="text" name="address" class="form-control" id="address" value="${shippingaddress.address }">
       </div>
     </div>
      <div class="form-group">
       <label class="control-label col-sm-2" for="zipcode"> Zipcode:</label>
       <div class="col-sm-10">
-        <input type="text" name="zipcode" class="form-control" id="zipcode" placeholder="Enter Zipcode">
+        <input type="text" name="zipcode" class="form-control" id="zipcode" value="${shippingaddress.zipcode }">
       </div>
     </div>
     <div class="form-group">        

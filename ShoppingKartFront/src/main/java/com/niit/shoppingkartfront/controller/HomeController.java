@@ -29,7 +29,13 @@ public class HomeController {
 
 		return "home";
 	}
+@RequestMapping("home")
+public String HomePage(Model model){
+	List<Product> productList = productDAO.list();
+	model.addAttribute("productList", productList);
 
+	return "home";
+}
 	@RequestMapping("signupPage")
 	public ModelAndView newSignup() {
 
