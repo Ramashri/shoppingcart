@@ -89,9 +89,9 @@ public class ShippingaddressDAOImpl implements ShippingaddressDAO {
 	}
 
 	@Transactional
-	public void delete(String Shippingaddress) {
+	public void delete(int shippingId) {
 		Shippingaddress shippingaddressToDelete = new Shippingaddress();
-		shippingaddressToDelete.setAddress(Shippingaddress);
+		shippingaddressToDelete.setShippingId(shippingId);
 		sessionFactory.getCurrentSession().delete(shippingaddressToDelete);
 		
 	}

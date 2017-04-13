@@ -20,7 +20,7 @@ public interface ShippingaddressDAO {
 		
 		public void saveOrUpdate(Shippingaddress shippingaddress);
 		
-		public void delete(String shippingaddress);
+		public void delete(int shippingId);
 		
 		public void editShippingAddress(Shippingaddress shippingaddress);
 

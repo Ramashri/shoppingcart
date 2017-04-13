@@ -34,7 +34,7 @@ public class CartDAOImpl implements CartDAO {
 
 	@Transactional
 	public Cart getByCartId(int cartid) {
-		String hql = "from Cart where CartId ='" + cartid + "'";
+		String hql = "from Cart where cartId ='" + cartid + "'";
 		Query query = (Query) sessionFactory.getCurrentSession().createQuery(hql);
 		@SuppressWarnings("unchecked")
 		List<Cart> listCart = (List<Cart>) (query).list();
@@ -126,6 +126,12 @@ public class CartDAOImpl implements CartDAO {
 			return listCart.get(0);
 		}
 		return null;
+	}
+	@Transactional
+	public void updateshipping(String emailId, int shippingId) {
+		String hql = " update Cart set shippingId = '" + shippingId + "' where emailId = '" + emailId + "'";
+		sessionFactory.getCurrentSession().createQuery(hql);
+	
 	}
 	
 	

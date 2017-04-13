@@ -26,4 +26,6 @@ public Long getTotalAmount(int id);
 public boolean itemAlreadyExist(String emailId, int productId, boolean b);
 
 public Cart getByUserandProduct(String emailId, int productId);
+
+public void updateshipping(String emailId, int shippingId);
 }

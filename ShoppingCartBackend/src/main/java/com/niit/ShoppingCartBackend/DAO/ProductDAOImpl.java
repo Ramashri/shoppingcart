@@ -32,7 +32,7 @@ public class ProductDAOImpl implements ProductDAO {
 
 	@Transactional
 	public Product getByProductId(int productid) {
-		String hql = "from Product where ProductId ='" + productid + "'";
+		String hql = "from Product where productId ='" + productid + "'";
 		Query query = (Query) sessionFactory.getCurrentSession().createQuery(hql);
 		@SuppressWarnings("unchecked")
 		List<Product> listProduct = (List<Product>) (query).list();
