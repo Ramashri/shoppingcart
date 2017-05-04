@@ -107,6 +107,6 @@ public class ShippingaddressController {
 	
 	@ModelAttribute
 	public void commonToUser(Model model){
-		model.addAttribute("userLoggedIn", true);
+		model.addAttribute("userLoggedIn", "true");
 	}
 }

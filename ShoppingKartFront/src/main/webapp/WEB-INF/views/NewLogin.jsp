@@ -12,15 +12,15 @@
 <body>
 
 <div class="container">
-  <form action="isvaliduser" method="post" class="form-horizontal">
+  <form action="isvaliduser" method="post"  class="form-horizontal">
     <div class="form-group">
-     <br><br> <label class="control-label col-sm-2" for="emailid">EmailId:</label>
+     <br><br> <div class="fnt"><font color="#ce3175"> <label class="control-label col-sm-2" for="emailid">EmailId:</label></font></div>
       <div class="col-sm-10">
         <input type="email" name="EmailId" class="form-control" id="emailid" placeholder="Enter email">
       </div>
     </div>
     <div class="form-group">
-      <label class="control-label col-sm-2" for="pwd">Password:</label>
+       <div class="fnt"><font color="#ce3175"><label class="control-label col-sm-2" for="pwd">Password:</label></font></div>
       <div class="col-sm-10">          
         <input type="password" name="Password" class="form-control" id="pwd" placeholder="Enter password">
       </div>

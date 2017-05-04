@@ -13,38 +13,49 @@ th, td {
 th {
 	text-align: left;
 }
+
+#page {
+	margin: 20px;
+}
 </style>
 </head>
 <body>
-	<table style="width: 100%">
-		<tr>
-			<th align="left">S.No</th>
-			<th align="left">Cart Id</th>
-			<th align="left">Product Name</th>
-			<th align="left">Price</th>
-			<th align="left">Quantity</th>
-			<th align="left">Total</th>
-			<th align="left">Days</th>
-			<th align="left">Remove</th>
-
-		</tr>
-		
-			<c:forEach items="${cartList}" var="cart" varStatus="status">
+	<div id="page">
+		<table style="width: 100%">
 			<tr>
-				<td>${status.count}</td>
-				<td>${cart.cartId}</td>
-				<td>${cart.productName}</td>
-				<td>${cart.price}</td>
-				<td>${cart.qty}</td>
-				<td>${cart.total}</td>
-				<td>${cart.days}</td>
-				<td><a href="removeCart?cartId=${cart.cartId}">Remove</a></td>
+				<th align="left">S.No</th>
+				<th align="left">Cart Id</th>
+				<th align="left">Product Name</th>
+				<th align="left">Price</th>
+				<th align="left">Quantity</th>
+				<th align="left">Total</th>
+				<th align="left">Days</th>
+				<th align="left">Remove</th>
+
+			</tr>
+
+			<c:forEach items="${cartList}" var="cart" varStatus="status">
+				<tr>
+					<td>${status.count}</td>
+					<td>${cart.cartId}</td>
+					<td>${cart.productName}</td>
+					<td>${cart.price}</td>
+					<td>${cart.qty}</td>
+					<td>${cart.total}</td>
+					<td>${cart.days}</td>
+					<td><a href="removeCart?cartId=${cart.cartId}">Remove</a></td>
 				</tr>
 			</c:forEach>
-<tr>
-<td colspan="5">Grand Total :</td><td colspan="2">${GrandTotal }</td>
-</tr>
-		
-	</table>
-	<p><a href="proceed"><button align="left" class="w3-button w3-#009933">Proceed</button></a></p>  
+			<tr>
+				<td colspan="5">Grand Total :</td>
+				<td colspan="2">${GrandTotal }</td>
+				<td></td>
+			</tr>
+			
+		</table>
+		</div>
+		<p>
+			<a href="proceed"><button align="left"
+					class="w3-button w3-#009933">Proceed</button></a>
+		</p>
 </body>

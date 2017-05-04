@@ -96,6 +96,7 @@ public class UserController {
 		else if(role1.equals("ROLE_USER")){
 			List<Product> productList = productDAO.list();
 			model.addAttribute("productList", productList);
+			model.addAttribute("userLoggedIn", "true");
 			return "UserLogin";
 		}
 		else{		
@@ -103,8 +104,5 @@ public class UserController {
 		return "NewLogin";
 		}
 	}
-	@ModelAttribute
-	public void commonToUser(Model model){
-		model.addAttribute("userLoggedIn", true);
-	}
+	
 }

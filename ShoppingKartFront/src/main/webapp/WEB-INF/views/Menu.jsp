@@ -127,12 +127,13 @@ li a:hover {
                                    
                                    <li style="float:right"><a href="j_spring_security_logout">Logout</a></li>
                                    
-                                    <c:if test="${not empty userLoggedIn}">
+                                    <c:if test="${userLoggedIn == 'true'}">
                                <li style="float:right"><a href="myCart">My Cart</a></li> 
                                </c:if>
                                 </c:if>
                                 
                                  <c:if test="${pageContext.request.userPrincipal.name == null }">
+                                
                                  <li style="float:right"><a href="loginPage">Login</button></li>
                                 <li style="float:right"><a href="signupPage">Signup</a></li> 
                                                               

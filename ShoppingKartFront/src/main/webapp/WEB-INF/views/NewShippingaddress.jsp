@@ -10,9 +10,76 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+<script>
 
+
+function formAddress() {
+	// Make quick references to our fields
+	
+	var userName = document.getElementById('userName');
+	var contactNumber = document.getElementById('contactNumber');
+	var address = document.getElementById('address');
+	var zipcode = document.getElementById('zipcode');
+	// Check each input in the order that it appears in the form!
+	
+				if (notEmpty(userName, "Username Should not be empty")) {
+						if (isAlphabet(userName,
+								"Please enter only letters for Username")) {
+									if (notEmpty(contactNumber,
+											"Contact Number Should not be empty")) {
+										if (isNumeric(contactNumber,
+												"Please enter only number for Contact Number")) {
+										     if (notEmpty(address,
+														"Address Should not be empty")) {
+													if (notEmpty(zipcode,
+															"Zipcode Should not be empty")) {
+														if (isNumeric(
+																zipcode,
+																"Please enter a valid zip code")) {
+															return true;
+														}
+													}
+												}
+											}
+										}
+									}
+		
+}
+	return false;
+}
+function notEmpty(elem, helperMsg) {
+	if (elem.value.length == 0) {
+		alert(helperMsg);
+		elem.focus(); // set the focus to this input
+		return false;
+	}
+	return true;
+}
+
+function isNumeric(elem, helperMsg) {
+	var numericExpression = /^[0-9]+$/;
+	if (elem.value.match(numericExpression)) {
+		return true;
+	} else {
+		alert(helperMsg);
+		elem.focus();
+		return false;
+	}
+}
+function isAlphabet(elem, helperMsg) {
+	var alphaExp = /^[a-z A-Z]+$/;
+	if (elem.value.match(alphaExp)) {
+		return true;
+	} else {
+		alert(helperMsg);
+		elem.focus();
+		return false;
+	}
+}
+
+</script>
 <div class="container">
-  <form action="addShippingaddress" method="post" class="form-horizontal">
+  <form action="addShippingaddress" method="post" onsubmit="return formAddress()" class="form-horizontal">
     <div class="form-group">
       <label class="control-label col-sm-2" for="UserName"> User Name:</label>
       <div class="col-sm-10">
@@ -22,7 +89,7 @@
      <div class="form-group">
       <label class="control-label col-sm-2" for="contactNumber">Contact Number:</label>
       <div class="col-sm-10">
-        <input type="text" name="contactNumber" class="form-control" id="contactNumber" placeholder="Enter User Name">
+        <input type="text" name="contactNumber" class="form-control" id="contactNumber" placeholder="Enter Contact Number">
       </div>
     </div>
     <div class="form-group">

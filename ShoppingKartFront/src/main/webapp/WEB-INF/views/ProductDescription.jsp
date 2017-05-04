@@ -25,7 +25,7 @@
  
  <div class="right">
  <ul style="list-style-type:none">
-  <br><br><br><br><li class="span2"><h5 style="color: #99003d" >Product Name: ${product.productName}</h5>
+ <br><br><br><br><li class="span2"><h5 style="color: #99003d" >Product Name: ${product.productName}</h5>
   <h6 style="color: #99003d">Price: ${product.price}</h6></li></ul>
  <span style="color: red;"> ${message}</span>
   <div class="w3-container">

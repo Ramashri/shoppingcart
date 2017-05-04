@@ -45,6 +45,11 @@
       <a href="supplierPage">Add</a>
     </div>
   </div> 
+  <div class="" style="float: left">
+			<a href="adminCart"><div class="dropdown">
+			 <button class="dropbtn"><li>Cart</li></button></div>
+			 </a>
+			</div>
   </ul>
   
   
@@ -89,10 +94,13 @@
    
      </c:when>
      <c:when test="${not empty editSupplierClicked}">
+     
        <%@include file="/WEB-INF/views/EditSupplier.jsp" %>
    
      </c:when>
-     
+     <c:when test="${not empty adminCartClicked }">
+			<%@include file="/WEB-INF/views/adminCart.jsp"%>
+		</c:when>
      
      </c:choose> 
 </body>

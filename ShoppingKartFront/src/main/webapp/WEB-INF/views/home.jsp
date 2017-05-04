@@ -5,6 +5,10 @@
 <title>Shopping Cart</title>
 	
 <style>
+.back{
+background: white ;
+  
+}
 
 a{
 	color: white;
@@ -36,7 +40,7 @@ li a {
 #page{ margin: 20px; }
 </style>
 </head>
-<body>
+<body class="back">
 
 			<h1><a><font color="#ff0066">Shopping Cart</font></a></h1>
 		
@@ -60,9 +64,7 @@ li a {
      
      <c:otherwise> <%@include file="/WEB-INF/views/productList.jsp" %></c:otherwise>
      </c:choose> 
-     
-   
-</div>
+    
      
 </body>
 

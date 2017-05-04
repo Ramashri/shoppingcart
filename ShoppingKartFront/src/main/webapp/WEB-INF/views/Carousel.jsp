@@ -15,6 +15,10 @@
        max-height: 400px;
       margin: auto;
   }
+  
+  .fnt{
+   font-family: "Times New Roman", Times, serif;
+  }
   </style>
 </head>
 <body>
@@ -33,21 +37,23 @@
     <div class="carousel-inner" role="listbox">
       <div class="item active">
         <img src="resources/image/Carousel/carousel1.jpg" width="350" height="275">
-      <h2><font color="#ff0066">Find a Collection</font></h2>
-	  <h3><font color="#0000ff">Of Branded Watches Here</font></h3>
-         
+     <div class="fnt"> <h2><font color="#ce3175">Find a Collection</font></h2>
+	  <h3><font color="#ce3175">Of Branded Watches Here</font></h3>
+         </div>
 	  </div>
 
       <div class="item">
         <img src="resources/image/Carousel/c2.jpg" width="460" height="345">
-		<h2><font color="#ff0066">Collection of</font></h2>
-		<h3><font color="#0000ff">Luxury Watches</font></h3>
+		<div class="fnt"><h2><font color="#ce3175">Collection of</font></h2>
+		<h3><font color="#ce3175">Luxury Watches</font></h3>
+      </div>
       </div>
     
       <div class="item">
         <img src="resources/image/Carousel/c8.jpg" width="350" height="275">
-      <h2><font color="#ff0066">Classic</font></h2>
-	  <h3><font color="#0000ff">Wall Clock</font></h3>
+      <div class="fnt"><h2><font color="#ce3175">Classic</font></h2>
+	  <h3><font color="#ce3175">Wall Clock</font></h3>
+	  </div>
 	  </div>
 	
 
